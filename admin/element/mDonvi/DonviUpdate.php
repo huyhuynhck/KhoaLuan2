@@ -1,49 +1,30 @@
-<div>Cập nhật người dùng</div>
+<div>Cập nhật Đơn vị</div>
 <?php
-require '../mod/userCls.php';
-$iduser = $_GET['iduser'];
-$user = new user();
-$getuser = $user->UserGetbyId($iduser);
+require './element/mod/DonviCls.php';
+$id_donvi = $_GET['id_donvi'];
+$donvi = new donvi();
+$getdonvi = $donvi->DonviGetbyId($id_donvi);
 ?>
-<div class="title_user">Người dùng mới</div>
+<div class="title_user">Đơn vị mới</div>
 <div class="content_user">
-    <form name="updateuser" id="formupdate" method="post" action="./element/mUser/userAct.php?reqact=updateuser">
-        <input type="hidden" name="iduser" value="<?php echo $iduser; ?>"/>
-        <table>
-            <tr>
-                <td>Tên đăng nhập:</td>
-                <td><input type="text" name="username" value="<?php echo $getuser->username; ?>"/></td>
-            </tr>
-            <tr>
-                <td>Mật khẩu:</td>
-                <td><input type="password" name="password" value="<?php echo $getuser->password; ?>"/></td>
-            </tr>
-            <tr>
-                <td>Họ tên:</td>
-                <td><input type="text" name="hoten" value="<?php echo $getuser->hoten; ?>"/></td>
-            </tr>
-            <tr>
-                <td>Giới tính:</td>
-                <td>Nam<input type="radio" name="gioitinh" value="1" <?php if ($getuser->gioitinh == 1) echo 'checked'; ?>/>
-                    Nữ<input type="radio" name="gioitinh" value="0" <?php if ($getuser->gioitinh == 0) echo 'checked'; ?>/>
-                </td>
-            </tr>
-            <tr>
-                <td>Ngày sinh:</td>
-                <td><input type="date" name="ngaysinh" value="<?php echo $getuser->ngaysinh; ?>"/></td>
-            </tr>
-            <tr>
-                <td>Địa chỉ:</td>
-                <td><input type="text" name="diachi" value="<?php echo $getuser->diachi; ?>"/></td>
-            </tr>
-            <tr>
-                <td>Điện thoại:</td>
-                <td><input type="tel" name="dienthoai" value="<?php echo $getuser->dienthoai; ?>"/></td>
-            </tr>
-            <tr>
-                <td><input type="submit" id="btnsubmit" value="Cập nhật"/></td>
-                <td><input type="reset" value="Làm lại"/><b id="noteForm"></b></td>
-            </tr>
-        </table>
+    <form name="updatedonvi" id="formupdate" method="post" action="./element/mDonvi/DonviAct.php?reqact=updatedonvi">
+        <div class="form">
+            <div class="form-group">
+                <label>Mã đơn vị:</label>
+                <input required class="form-control" type="text" name="ma_donvi" value="<?php echo $getdonvi->ma_donvi; ?>">
+            </div>
+            <div class="form-group">
+                <label>Tên đơn vị:</label>
+                <input required class="form-control" type="text" name="ten_donvi" value="<?php echo $getdonvi->ten_donvi; ?>">
+            </div>
+            <div class="form-group">
+                <label>Mô tả:</label>
+                <input required class="form-control" type="text" name="mota" value="<?php echo $getdonvi->mota; ?>">
+            </div>
+            <div class="form-group mt-2">
+                <input type="submit" value="Cập nhật" id="btnsubmit">
+                <input type="reset" value="Làm lại"><b id="noteForm"></b>
+            </div>
+        </div>
     </form>
 </div>

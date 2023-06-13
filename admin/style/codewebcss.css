@@ -1,12 +1,14 @@
-body{
+body {
     margin: 0px;
     padding: 0px;
 }
-#main_content{
+
+#main_content {
     width: 90%;
     margin: auto;
 }
-#top_div{
+
+#top_div {
     height: 150px;
     width: 100%;
     border-radius: 15px;
@@ -16,17 +18,20 @@ body{
     margin: 5px;
     padding: 5px;
 }
-#left_div{
+
+#left_div {
     height: auto;
     width: 17%;
-    float: left;border-radius: 15px;
+    float: left;
+    border-radius: 15px;
     border: solid 0.2px;
     border-color: background;
     box-shadow: 2px 2px #888888;
     margin: 5px;
     padding: 5px;
 }
-#center_div{
+
+#center_div {
     height: auto;
     width: 57%;
     float: left;
@@ -38,7 +43,8 @@ body{
     margin: 5px;
     padding: 5px;
 }
-#right_div{
+
+#right_div {
     height: 500px;
     width: 21%;
     float: left;
@@ -49,7 +55,8 @@ body{
     margin: 5px;
     padding: 5px;
 }
-#bottom_div{
+
+#bottom_div {
     height: 100px;
     width: 100%;
     clear: both;
@@ -60,62 +67,78 @@ body{
     margin: 5px;
     padding: 5px;
 }
+
 /*Menu*/
-.t_menu{
+.t_menu {
     font-weight: bolder;
     text-align: center;
 }
-.cateOrder{
+
+.cateOrder {
     font-weight: bold;
 }
-.itemOrder{
+
+.itemOrder {
     font-style: italic;
 }
-ul{
+
+ul {
     list-style: square;
     margin: 0;
     padding-left: 15px;
 }
-a{
+
+a {
     text-decoration: none;
 }
-.btnupdate:hover{ 
+
+.btnupdate:hover {
     cursor: pointer
 }
+
 /*slide image*/
-.DivSlideimage{
+.DivSlideimage {
     width: 80%;
     margin: auto;
 }
-.DivView{
-/*    width: 700px;
+
+.DivView {
+    /*    width: 700px;
     height: 500px;*/
     border: solid;
 }
-.DivList{
-/*    width: 700px;
+
+.DivList {
+    /*    width: 700px;
     height: 500px;*/
     border: solid;
 }
-.imgView{
+
+.imgView {
     width: 100%;
 }
-.imgCls{
+
+.imgCls {
     width: 90px;
 }
-.imgCls:hover{
+
+.imgCls:hover {
     width: 95px;
 }
-.btnupdate{
+
+.btnupdate {
     cursor: pointer;
 }
-.iconimg{
+
+.iconimg {
     height: 30px;
 }
-.imgtable{
+
+.imgtable {
     height: 100px;
 }
-.loginBody{
+
+.loginBody {
     border-left: 1px double lightsteelblue;
     border-top: 1px double lightsteelblue;
     border-right: 1px double lightsteelblue;
@@ -124,20 +147,23 @@ a{
     height: 150px;
     margin: auto auto;
 }
+
 /*nút logout*/
-.signoutbutton{
+.signoutbutton {
     position: absolute;
     z-index: 2;
     top: 10px;
     right: 70px;
     opacity: 0.75;
 }
+
 h3 {
     font-size: 25px;
     color: white;
     text-align: center;
     margin-bottom: 30px;
 }
-.icoming{
-    height: 20px
+
+.icoming {
+    height: 40px
 }

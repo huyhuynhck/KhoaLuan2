@@ -1,0 +1,56 @@
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.accordion:hover {
+    background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    /* display: none; */
+    overflow: auto;
+    height: 0px;
+    transition: all 0.5s ease-in-out;
+
+}
+
+.panel.active {
+    display: block !important;
+    height: 100vh !important;
+    transition: all 0.5s ease-in-out;
+
+}
+
+ul {
+    transition: all 0.3s ease-in-out;
+}
+
+li a {
+    color: #aeb2b7;
+    text-decoration: none;
+    display: block;
+    padding: 18px 0 18px 25px;
+    font-size: 12px;
+    outline: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* đăng xuất*/
+button.btn.btn-default.btn-sm {
+    float: right;
+}

@@ -1,0 +1,169 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+#main_content {
+    margin: auto;
+}
+
+.banner {
+    height: 100%;
+    width: 100%;
+}
+
+#top_div {
+    height: 150px;
+    width: 100%;
+    border-radius: 15px;
+    margin: 5px;
+    padding: 5px;
+}
+
+#left_div {
+    height: auto;
+    width: auto;
+    float: left;
+    margin: 5px;
+    padding: 5px;
+}
+
+#center_div {
+    margin: 5px;
+    padding: 5px;
+}
+
+#right_div {
+    height: 500px;
+    width: 21%;
+    float: left;
+    border-radius: 15px;
+    border: solid 0.2px;
+    border-color: background;
+    box-shadow: 2px 2px #888888;
+    margin: 5px;
+    padding: 5px;
+}
+
+/* #bottom_div {
+    height: 100px;
+    width: 100%;
+    clear: both;
+    border-radius: 15px;
+    border: solid 0.2px;
+    border-color: background;
+    box-shadow: 2px 2px #888888;
+    margin: 5px;
+    padding: 5px;
+} */
+
+/*Menu*/
+/* .t_menu {
+    font-weight: bolder;
+    text-align: center;
+}
+
+.cateOrder {
+    font-weight: bold;
+}
+
+.itemOrder {
+    font-style: italic;
+}
+
+ul {
+    list-style: square;
+    margin: 0;
+    padding-left: 15px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btnupdate:hover {
+    cursor: pointer
+} */
+
+/*slide image*/
+/* .DivSlideimage {
+    width: 80%;
+    margin: auto;
+} */
+
+/*.DivView {
+    /*    width: 700px;
+    height: 500px;
+    border: solid;
+}*/
+/* .DivList {
+    width: 700px;
+    height: 500px;
+    border: solid;
+}
+
+.imgView {
+    width: 100%;
+}
+
+.imgCls {
+    width: 90px;
+}
+
+.imgCls:hover {
+    width: 95px;
+}
+
+.btnupdate {
+    cursor: pointer;
+} */
+
+.iconimg {
+    height: 30px;
+}
+
+.imgtable {
+    height: 100px;
+}
+
+.loginBody {
+    border-left: 1px double lightsteelblue;
+    border-top: 1px double lightsteelblue;
+    border-right: 1px double lightsteelblue;
+    border-bottom: 1px double lightsteelblue;
+    width: 300px;
+    height: 150px;
+    margin: auto auto;
+}
+
+/*nút logout*/
+.signoutbutton {
+    position: absolute;
+    z-index: 2;
+    top: 10px;
+    right: 70px;
+    opacity: 0.75;
+}
+
+/* h3 {
+    font-size: 25px;
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+} */
+
+.icoming {
+    height: 30px
+}
+
+div#myTable_wrapper {
+    overflow-x: auto;
+}
+
+div#myTable_2_wrapper {
+    overflow-x: auto;
+}
+
+div#myTable_3_wrapper {
+    overflow-x: auto;
+}

@@ -1,8 +1,8 @@
 <?php
 
-$a = '../administrator/element/mod/database.php';
+$a = '../admin/element/mod/database.php';
 $h = './element/mod/database.php';
-$t = './administrator/element/mod/database.php';
+$t = './admin/element/mod/database.php';
 $s = '../../element/mod/database.php';
 if (file_exists($s)) {
     $f = $s;
@@ -17,7 +17,7 @@ if (!file_exists($t) && !file_exists($s) && !file_exists($h)) {
     $f = $a;
 }
 if (!file_exists($t) && !file_exists($s) && !file_exists($h) && !file_exists($a)) {
-    $f = '../element/mod/database.php';
+    $f = '../database.php';
 }
 require_once $f;
 
@@ -130,6 +130,14 @@ class user extends database {
         $getTk->setFetchMode(PDO::FETCH_OBJ);
         $getTk->execute(array($username));
         return $getTk->fetch();
+    }
+
+    public function UserCount() {
+        $getAll = $this->connect->prepare("select * from user");
+        $getAll->setFetchMode(PDO::FETCH_OBJ);
+        $getAll->execute();
+        $list = $getAll->fetchAll();
+        return count($list);
     }
 }
 

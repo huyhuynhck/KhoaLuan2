@@ -6,6 +6,7 @@ if (isset($_GET['reqact'])) {
     $requestAction = $_GET['reqact'];
     switch ($requestAction) {
         case 'addnew':
+            $rs = 0;
             $username = $_POST['username'];
             $password = $_POST['password'];
             $hoten = $_POST['hoten'];
@@ -14,11 +15,18 @@ if (isset($_GET['reqact'])) {
             $diachi = $_POST['diachi'];
             $dienthoai = $_POST['dienthoai'];
             $user = new user();
-            $rs = $user->UserAdd($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai);
-            if ($rs) {
+            $check = $user->UserCheckUsername($username);
+            if($check){
+                $rs = 2;
+            }else{
+                $rs += $user->UserAdd($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai);
+            }
+            if ($rs == 1) {
                 header('location:../../index.php?req=userview&result=ok');
-            } else {
+            }if ($rs == 0) {
                 header('location:../../index.php?req=userview&result=notok');
+            }if ($rs == 2) {
+                header('location:../../index.php?req=userview&result=usernamekhong');
             }
             break;
         case 'deleteuser':
@@ -74,8 +82,9 @@ if (isset($_GET['reqact'])) {
             }
             setcookie($namelogin, $timelogin, time() + (86400 * 30), "/");
             session_destroy();
-            header('location: ../../../index.php');
+            header('location: ../../index.php');
             break;
+        
         case 'checklogin':
             $username = $_POST['username'];
             $password = $_POST['password'];
@@ -90,8 +99,8 @@ if (isset($_GET['reqact'])) {
                 }
                 header('location:../../index.php');
             } else {
-                
-                header('location: ../../../index.php');
+                header('location:../../userLogin.php');
+                setcookie("error", "Đăng nhập không thành công!");
             }
             break;
         default :
