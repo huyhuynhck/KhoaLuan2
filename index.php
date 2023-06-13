@@ -1,20 +1,29 @@
 <?php 
     session_start();
 ?>
+<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-        <link type="text/css" rel="stylesheet" href="assets/pmycss.css"/>
-        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    </head>
+<head>
+	<title>Login Page</title>
+   <!--Made with love by Mutiullah Samim -->
+   
+
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="assets/vendor/fontawesome-free/css/all.css" >
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="assets/css/user.css">
+</head>
     <body>
         <div id="lvOne">
-            <h1>aaaaaa</h1>
+            <?php 
+            require 'user/loginuser.php';
+            ?>
         </div>
         <div id="lvTwo"> 
             
