@@ -24,7 +24,7 @@
                 <div class="form-container">
                     <div class="form-icon"><i style="margin: 20px;" class="fa fa-user"></i></div>
                     <h3 class="title">Login</h3>
-                    <form class="form-horizontal" method="post" action="form/taikhoan/taikhoanAct.php?reqact=checklogin">
+                    <form class="form-horizontal" method="post" action="user/form/taikhoan/taikhoanAct.php?reqact=checklogin">
                         <div class="form-group">
                             <label>Username</label>
                             <input class="form-control" type="text" placeholder="Tên tài khoản" name="ten_taikhoan">
