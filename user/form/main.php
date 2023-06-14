@@ -17,6 +17,15 @@
                             case 'userxemluong':
                                 require 'form/ViewUser/LuongXem.php';
                                 break;
+                            case 'userviewluong':
+                                require 'form/ViewUser/LuongView.php';
+                                break;
+                            case 'viewdoimatkhau':
+                                require 'form/Taikhoan/Doimatkhau.php';
+                                break;
+                            case 'quanlyuser':
+                                require 'form/Taikhoan/Quanly.php';
+                                break;
                             }
                     } else {
                         require 'center.php';

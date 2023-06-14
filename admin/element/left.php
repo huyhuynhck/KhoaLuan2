@@ -58,14 +58,13 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
                     aria-expanded="true" aria-controls="collapseThree">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Phần quyền</span>
+                    <span>Tài khoản</span>
                 </a>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Phân quyền:</h6>
-                        <a class="collapse-item" href="index.php?req=phanquyenview">Phân quyền</a>
-                        <a class="collapse-item" href="index.php?req=phannhomview">Phân nhóm</a>
+                        <h6 class="collapse-header">Tài khoản:</h6>
+                        <a class="collapse-item" href="index.php?req=viewtaikhoan">Tài khoản người dùng</a>
                     </div>
                 </div>
             </li>

@@ -22,12 +22,12 @@ if (!file_exists($t) && !file_exists($s) && !file_exists($h) && !file_exists($a)
 require_once $f;
 
 class taikhoan extends database {
-    /* Phương thức UserCheckLogin: thực hiện kiểm tra đăng nhập */
+    /* Phương thức TaikhoanCheckLogin: thực hiện kiểm tra đăng nhập */
 
-    public function UserCheckLogin($username, $password) {
+    public function TaikhoanCheckLogin($ten_taikhoan, $matkhau) {
         $select = $this->connect->prepare("select * from taikhoan where ten_taikhoan = ? and matkhau = ? and ability=0");
         $select->setFetchMode(PDO::FETCH_OBJ);
-        $select->execute(array($username, $password));
+        $select->execute(array($ten_taikhoan, $matkhau));
         if (count($select->fetchAll()) == 1) {
             return TRUE;
         } else {
@@ -35,109 +35,53 @@ class taikhoan extends database {
         }
     }
 
-    /* Phương thức UserCheckUsername:kiểm tra tồn tại username */
+    /* Phương thức TaikhoanGetAll: lấy tất cả mẩu tin trong bảng Taikhoan trả về mảng dữ liệu: */
 
-    public function UserCheckUsername($username) {
-        $select = $this->connect->prepare("select * from user where username = ?");
-        $select->setFetchMode(PDO::FETCH_OBJ);
-        $select->execute(array($username));
-        if (count($select->fetchAll()) == 1) {
-            return TRUE;
-        } else {
-            return FALSE;
-        }
-    }
-
-    /* Phương thức UserGetAll: lấy tất cả mẩu tin trong bảng user trả về mảng dữ liệu: */
-
-    public function UserGetAll() {
-        $getAll = $this->connect->prepare("select * from user");
+    public function TaikhoanGetAll() {
+        $getAll = $this->connect->prepare("select * from taikhoan");
         $getAll->setFetchMode(PDO::FETCH_OBJ);
         $getAll->execute();
         return $getAll->fetchAll();
     }
 
-    /* Phương thức UserAdd: thêm người dùng */
+    /* Phương thức TaikhoanAdd: thêm người dùng */
 
-    public function UserAdd($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai) {
-        $add = $this->connect->prepare("INSERT INTO user(username, password, hoten, gioitinh, ngaysinh, diachi, dienthoai) VALUES(?,?,?,?,?,?,?)");
-        $add->execute(array($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai));
+    public function TaikhoanAdd($ten_taikhoan, $matkhau, $id_canbo) {
+        $add = $this->connect->prepare("INSERT INTO taikhoan(ten_taikhoan, matkhau, id_canbo) VALUES(?,?,?)");
+        $add->execute(array($ten_taikhoan, $matkhau, $id_canbo));
         return $add->rowCount();
     }
 
-    /* Phương thức UserDelete: xóa người dùng */
+    /* Phương thức TaikhoanDelete: xóa người dùng */
 
-    public function UserDelete($iduser) {
-        $del = $this->connect->prepare("delete from user where iduser=?");
-        $del->execute(array($iduser));
+    public function TaikhoanDelete($id_taikhoan) {
+        $del = $this->connect->prepare("DELETE from taikhoan where id_taikhoan=?");
+        $del->execute(array($id_taikhoan));
         return $del->rowCount();
     }
 
-    /* Phương thức UserUpdate: cập nhật dữ liệu người dùng */
+    /* Phương thức TaikhoanUpdate: cập nhật dữ liệu người dùng */
 
-    public function UserUpdate($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai, $iduser) {
-        $update = $this->connect->prepare("UPDATE user SET username = ?, password = ?, hoten = ?, gioitinh = ?, ngaysinh = ?, diachi = ?, dienthoai = ? WHERE iduser = ?");
-        $update->execute(array($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai, $iduser));
+    public function TaikhoanUpdate($ten_taikhoan, $matkhau, $id_canbo, $id_taikhoan) {
+        $update = $this->connect->prepare("UPDATE taikhoan SET ten_taikhoan = ?, matkhau = ?, id_canbo = ? WHERE id_taikhoan = ?");
+        $update->execute(array($ten_taikhoan, $matkhau, $id_canbo, $id_taikhoan));
         return $update->rowCount();
     }
 
-    /* Phương thức UserGetbyId: chọn thông tin user bằng id */
+    /* Phương thức TaikhoanGetbyId: chọn thông tin Taikhoan bằng id */
 
-    public function UserGetbyId($iduser) {
-        $getTk = $this->connect->prepare("select * from user where iduser=?");
+    public function TaikhoanGetbyId($id_taikhoan) {
+        $getTk = $this->connect->prepare("select * from taikhoan where id_taikhoan=?");
         $getTk->setFetchMode(PDO::FETCH_OBJ);
-        $getTk->execute(array($iduser));
+        $getTk->execute(array($id_taikhoan));
         return $getTk->fetch();
     }
-
-    /* Phương thức UserSetPassword: set password người dùng */
-
-    public function UserSetPassword($iduser, $password) {
-        $update = $this->connect->prepare("update user set password=? where iduser=?");
-        $update->execute(array($password, $iduser));
-        return $update->rowCount();
-    }
-
-    /* Phương thức UserSetActive: khóa tài khoản người dùng */
-
-    public function UserSetActive($iduser, $ability) {
-        $update = $this->connect->prepare("update user set ability=? where iduser=?");
-        $update->execute(array($ability, $iduser));
-        return $update->rowCount();
-    }
-
-    /* Phương thức UserChangePassword: đổi password người dùng */
-
-    public function UserChangePassword($username, $passwordold, $passwordnew) {
-        $selectMK = $this->connect->prepare("select password from user where username=?");
-        $selectMK->setFetchMode(PDO::FETCH_OBJ);
-        $selectMK->execute(array($username));
-        if (count($selectMK->fetch()) == 1) {
-            $temp = $selectMK->fetch();
-            if ($passwordold == $temp->password) {
-                $update = $this->connect->prepare("update user set password=? where username=?");
-                $update->execute(array($passwordnew, $username));
-                return $update->rowCount();
-            } else {
-                return FALSE;
-            }
-        } else {
-            return FALSE;
-        }
-    }
+    
     public function TaikhoanGetName() {
-        $getAll = $this->connect->prepare("SELECT * from canbo, trinhdo, donvi, phanloai where canbo.id_trinhdo=trinhdo.id_trinhdo and canbo.id_donvi=donvi.id_donvi and canbo.id_phan_loai=phanloai.id_phan_loai");
+        $getAll = $this->connect->prepare("SELECT * FROM taikhoan,canbo WHERE taikhoan.id_canbo=canbo.id_canbo;");
         $getAll->setFetchMode(PDO::FETCH_OBJ);
         $getAll->execute();
         return $getAll->fetchAll();
-    }
-
-    public function UserCount() {
-        $getAll = $this->connect->prepare("select * from user");
-        $getAll->setFetchMode(PDO::FETCH_OBJ);
-        $getAll->execute();
-        $list = $getAll->fetchAll();
-        return count($list);
     }
 }
 

@@ -35,7 +35,7 @@ if(!isset($_SESSION['USER'])){
                                 <tr>
                                     
                                     <td><?php echo $v->ten_index; ?></td>
-                                    <td><a href="indexuser.php?req=userxemluong&id_index=<?= $v->id_index?>&id_canbo=<?= $_SESSION['USER']->id_canbo?>">Xem Lương</a></td>
+                                    <td><a href="indexuser.php?req=userviewluong&id_index=<?= $v->id_index?>&id_canbo=<?= $_SESSION['USER']->id_canbo?>">Xem Lương</a></td>
                                 </tr>
                                 <?php
                             }

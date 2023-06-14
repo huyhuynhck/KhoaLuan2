@@ -190,6 +190,12 @@
                             case 'update-luong':
                                 require './element/mKPI/LuongUpdate.php';
                                 break;
+                            case 'viewtaikhoan':
+                                require './element/mTaikhoan/TaikhoanView.php';
+                                break;
+                            case 'updatetaikhoan':
+                                require './element/mTaikhoan/TaikhoanUpdate.php';
+                                break;
                             }
                     } else {
                         require 'default.php';

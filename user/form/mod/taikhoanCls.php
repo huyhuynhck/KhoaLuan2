@@ -22,9 +22,9 @@ if (!file_exists($t) && !file_exists($s) && !file_exists($h) && !file_exists($a)
 require_once $f;
 
 class taikhoan extends database {
-    /* Phương thức UserCheckLogin: thực hiện kiểm tra đăng nhập */
+    /* Phương thức TaikhoanCheckLogin: thực hiện kiểm tra đăng nhập */
 
-    public function UserCheckLogin($username, $password) {
+    public function TaikhoanCheckLogin($username, $password) {
         $select = $this->connect->prepare("select * from taikhoan where ten_taikhoan = ? and matkhau = ?");
         $select->setFetchMode(PDO::FETCH_OBJ);
         $select->execute(array($username, $password));
@@ -35,68 +35,6 @@ class taikhoan extends database {
         }
     }
 
-    /* Phương thức UserCheckUsername:kiểm tra tồn tại username */
-
-    public function UserCheckUsername($username) {
-        $select = $this->connect->prepare("select * from user where username = ?");
-        $select->setFetchMode(PDO::FETCH_OBJ);
-        $select->execute(array($username));
-        if (count($select->fetchAll()) == 1) {
-            return TRUE;
-        } else {
-            return FALSE;
-        }
-    }
-
-    /* Phương thức UserGetAll: lấy tất cả mẩu tin trong bảng user trả về mảng dữ liệu: */
-
-    public function UserGetAll() {
-        $getAll = $this->connect->prepare("select * from user");
-        $getAll->setFetchMode(PDO::FETCH_OBJ);
-        $getAll->execute();
-        return $getAll->fetchAll();
-    }
-
-    /* Phương thức UserAdd: thêm người dùng */
-
-    public function UserAdd($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai) {
-        $add = $this->connect->prepare("INSERT INTO user(username, password, hoten, gioitinh, ngaysinh, diachi, dienthoai) VALUES(?,?,?,?,?,?,?)");
-        $add->execute(array($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai));
-        return $add->rowCount();
-    }
-
-    /* Phương thức UserDelete: xóa người dùng */
-
-    public function UserDelete($iduser) {
-        $del = $this->connect->prepare("delete from user where iduser=?");
-        $del->execute(array($iduser));
-        return $del->rowCount();
-    }
-
-    /* Phương thức UserUpdate: cập nhật dữ liệu người dùng */
-
-    public function UserUpdate($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai, $iduser) {
-        $update = $this->connect->prepare("UPDATE user SET username = ?, password = ?, hoten = ?, gioitinh = ?, ngaysinh = ?, diachi = ?, dienthoai = ? WHERE iduser = ?");
-        $update->execute(array($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai, $iduser));
-        return $update->rowCount();
-    }
-
-    /* Phương thức UserGetbyId: chọn thông tin user bằng id */
-
-    public function UserGetbyId($iduser) {
-        $getTk = $this->connect->prepare("select * from user where iduser=?");
-        $getTk->setFetchMode(PDO::FETCH_OBJ);
-        $getTk->execute(array($iduser));
-        return $getTk->fetch();
-    }
-
-    /* Phương thức UserSetPassword: set password người dùng */
-
-    public function UserSetPassword($iduser, $password) {
-        $update = $this->connect->prepare("update user set password=? where iduser=?");
-        $update->execute(array($password, $iduser));
-        return $update->rowCount();
-    }
 
     /* Phương thức UserSetActive: khóa tài khoản người dùng */
 
@@ -108,15 +46,15 @@ class taikhoan extends database {
 
     /* Phương thức UserChangePassword: đổi password người dùng */
 
-    public function UserChangePassword($username, $passwordold, $passwordnew) {
-        $selectMK = $this->connect->prepare("select password from user where username=?");
+    public function TaikhoanChangePassword($ten_taikhoan, $passwordold, $passwordnew) {
+        $selectMK = $this->connect->prepare("select matkhau from taikhoan where ten_taikhoan=?");
         $selectMK->setFetchMode(PDO::FETCH_OBJ);
-        $selectMK->execute(array($username));
-        if (count($selectMK->fetch()) == 1) {
+        $selectMK->execute(array($ten_taikhoan));
+        if (count($selectMK->fetch()) > 0) {
             $temp = $selectMK->fetch();
-            if ($passwordold == $temp->password) {
-                $update = $this->connect->prepare("update user set password=? where username=?");
-                $update->execute(array($passwordnew, $username));
+            if ($passwordold == $temp->matkhau) {
+                $update = $this->connect->prepare("update taikhoan set matkhau=? where ten_taikhoan=?");
+                $update->execute(array($passwordnew, $ten_taikhoan));
                 return $update->rowCount();
             } else {
                 return FALSE;

@@ -8,7 +8,7 @@ require './element/mod/TaikhoanCls.php';
 <div>
 <?php
     $taikhoan = new taikhoan();
-    $list_taikhoan = $taikhoan->UserGetAll();
+    $list_taikhoan = $taikhoan->TaikhoanGetAll();
     $l = count($list_taikhoan);
     ?>
     <form name="newtaikhoan" id="formreg" method="post" action="./element/mTaikhoan/TaikhoanAct.php?reqact=addnew">
@@ -20,14 +20,6 @@ require './element/mod/TaikhoanCls.php';
             <div class="form-group">
                 <label>Mật khẩu:</label>
                 <input required class='form-control' type="password" name="matkhau">
-            </div>
-            <div class="form-group">
-                <label>Địa chỉ thường trú:</label>
-                <input required class='form-control' type="text" name="diachithuongtru">
-            </div>
-            <div class="form-group">
-                <label>Ngày vào làm:</label>
-                <input required class='form-control' type="date" name="ngay_vao_lam">
             </div>
             <div>
                     <?php
@@ -53,14 +45,15 @@ require './element/mod/TaikhoanCls.php';
                     <input require class="btn btn-success" type="submit" value="Tạo mới" id="btnsubmit">
                     <input require class="btn btn-secondary" type="reset" value="Làm lại"/><b id="noteForm"></b>
                 </div>
-            </div>    
+        </div>    
     </form>
 </div>
 <hr/>
 
     <?php
     $taikhoan = new taikhoan();
-    $list_taikhoan = $taikhoan->TaikhoanGetName();
+    $list_taikhoan = $taikhoan->TaikhoanGetAll();
+    $canbo = new canbo();
     $l = count($list_taikhoan);
     ?>
     <p>Trong bảng có <b><?php echo $l; ?></b></p>
@@ -73,7 +66,7 @@ require './element/mod/TaikhoanCls.php';
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <!-- <th>Mã cán bộ</th> -->
+                                <th>Mã tài khoản</th>
                                 <th>Tên tài khoản</th>
                                 <th>Họ tên</th>
                                 <th>Email</th>
@@ -86,15 +79,15 @@ require './element/mod/TaikhoanCls.php';
                             foreach ($list_taikhoan as $v) {
                                 ?>
                                 <tr>
-                                    
+                                    <td><?php echo $v->id_taikhoan; ?></td>
                                     <td><?php echo $v->ten_taikhoan; ?></td>
-                                    <td><?php echo $v->ten_canbo; ?></td>
-                                    <td><?php echo $v->email; ?></td>
+                                    <td><?= $canbo->CanboGetbyId($v->id_canbo)->ten_canbo?></td>
+                                    <td><?= $canbo->CanboGetbyId($v->id_canbo)->email?></td>
                                     <td>
                                         <?php
                                         if (isset($_SESSION['ADMIN'])) {
                                             ?>
-                                            <img class="iconimg" src="./Image/delete.png" onclick="confirm_sweet('./element/mtaikhoan/taikhoanAct.php?reqact=deletetaikhoan&id_taikhoan=<?php echo $v->id_taikhoan; ?>')">
+                                            <img class="iconimg" src="./Image/delete.png" onclick="confirm_sweet('./element/mTaikhoan/TaikhoanAct.php?reqact=deletetaikhoan&id_taikhoan=<?php echo $v->id_taikhoan; ?>')">
                                             <?php
                                         } else {
                                             ?>

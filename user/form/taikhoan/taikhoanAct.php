@@ -6,32 +6,38 @@ if (isset($_GET['reqact'])) {
     $requestAction = $_GET['reqact'];
     switch ($requestAction) {
         case 'userlogout':
-            $timelogin = date('h:i - d/m/Y');
-            if (isset($_SESSION['USER'])) {
-                $namelogin = $_SESSION['USER'];
-            }
-            if (isset($_SESSION['ADMIN'])) {
-                $namelogin = $_SESSION['ADMIN'];
-            }
-            setcookie($namelogin, $timelogin, time() + (86400 * 30), "/");
-            session_destroy();
-            header('location: ../../index.php');
+            
+            header('location: ../../../index.php');
             break;
         
         case 'checklogin':
-            echo $username = $_POST['ten_taikhoan'];
-            echo $password = $_POST['matkhau'];
+            $ten_taikhoan = $_POST['ten_taikhoan'];
+            $matkhau = $_POST['matkhau'];
             $user = new taikhoan();
-            $rs = $user->UserCheckLogin($username, $password);
+            $rs = $user->TaikhoanCheckLogin($ten_taikhoan, $matkhau);
             if ($rs != FALSE) {
                 $_SESSION['USER'] = $rs;
 
                 header('location:../../indexuser.php');
             } else {
-                header('location:../../userLogin.php');
+                header('location:../../../index.php');
                 setcookie("error", "Đăng nhập không thành công!");
             }
             break;
+            case 'setpassword':
+                $ten_taikhoan = $_POST['ten_taikhoan'];
+                $passwordold = $_POST['passwordold'];
+                $passwordnew = $_POST['passwordnew'];
+                
+    
+                $taikhoan = new taikhoan();
+                $rs = $taikhoan->TaikhoanChangePassword($ten_taikhoan, $passwordold, $passwordnew);
+                if ($rs) {
+                    header('location:../../indexuser.php&ok');
+                } else {
+                    header('location:../../indexuser.php&notok');
+                }
+                break;
         default :
             header('location:../../indexuser.php');
     }
