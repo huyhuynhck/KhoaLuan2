@@ -2,7 +2,10 @@
 <?php //if($_POST['page_update'] == 'luong'):?>
 
 <style>
-    .divTable{
+.main-container__add-form {
+    font-family: 'Font Awesome 5 Free';
+}
+.divTable{
 	display: table;
 	width: 100%;
 }
@@ -47,6 +50,7 @@ h3{
     flex-direction: inherit;
     justify-content: center;
     margin-top: 8px;
+    font-weight: bold;
 }
 
 </style>
