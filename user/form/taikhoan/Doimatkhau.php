@@ -21,6 +21,7 @@
 <?php
     require 'form/mod/config.php';
 	if(isset($_POST['doimatkhau'])){
+    
 		$ten_taikhoan = $_POST['ten_taikhoan'];
 		$matkhau_cu = $_POST['password_cu'];
 		$matkhau_moi = $_POST['password_moi'];

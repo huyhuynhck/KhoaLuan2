@@ -1,5 +1,4 @@
 <?php
-session_start();
 require './form/mod/indexcount.php';
 if(!isset($_SESSION['USER'])){
     header('location: ../user/loginuser.php');
@@ -35,7 +34,7 @@ if(!isset($_SESSION['USER'])){
                                 <tr>
                                     
                                     <td><?php echo $v->ten_index; ?></td>
-                                    <td><a href="indexuser.php?req=userviewluong&id_index=<?= $v->id_index?>&id_canbo=<?= $_SESSION['USER']->id_canbo?>">Xem Lương</a></td>
+                                    <td><a class="btn btn-success btn-rounded" href="indexuser.php?req=userviewluong&id_index=<?= $v->id_index?>&id_canbo=<?= $_SESSION['USER']->id_canbo?>">Xem Lương</a></td>
                                 </tr>
                                 <?php
                             }

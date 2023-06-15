@@ -1,3 +1,8 @@
+<?php
+                if(!isset($_SESSION['USER'])){
+                    header('location: ../user/indexuser.php');
+                }
+                ?>
 <!-- Bottom Nav Bar -->
 <div class="footer">
          <div id="buttonGroup" class="btn-group selectors" role="group" aria-label="Basic example">
@@ -15,8 +20,7 @@
             </button>
             <button id="account" type="button" class="btn btn-secondary button-inactive">
                <div class="selector-holder">
-                  <i class="material-icons">account_circle</i>
-                  <span>Account</span>
+               <a class="fas fa-address-card" style="color: black; text-decoration: none"  href="./indexuser.php?req=accountview&id_canbo=<?= $_SESSION['USER']->id_canbo?>" ><br><span >Account</span></a>
                </div>
             </button>   
             <button id="create" type="button" class="btn btn-secondary button-inactive">

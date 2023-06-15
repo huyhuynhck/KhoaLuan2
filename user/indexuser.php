@@ -12,12 +12,17 @@
 	<link rel="stylesheet" href="../assets/vendor/fontawesome-free/css/all.css" >
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link href="../assets/vendor/fontawesome-free/css/all.css" rel="stylesheet">
+  
  
 	<!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href="../assets/css/indexuser.css">
 
 </head>
 <body>
+<?php
+  session_start();
+?>
 <div class="container-fluid mt-3">
   <h3 style="font-family: cursive;
             font-weight: bold;
@@ -48,7 +53,7 @@
 
   <script src="../assets/js/docso.js"></script>
 	<script src="../assets/js/userjs.js"></script>
-
+  
 
   
 </body>

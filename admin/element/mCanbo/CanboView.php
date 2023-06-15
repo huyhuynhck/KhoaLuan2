@@ -65,7 +65,7 @@ require './element/mod/PhanloaiCls.php';
                     $list_trinhdo = $trinhdo->TrinhdoGetAll();
                 ?>
                 <label>Trình độ</label>
-                <select class="form-select" aria-label="Default select example" require name="id_trinhdo">
+                <select class="form-control" aria-label="Default select example" require name="id_trinhdo">
                 <?php
                     foreach ($list_trinhdo as $td) {
                         ?>
@@ -83,7 +83,7 @@ require './element/mod/PhanloaiCls.php';
                         $list_donvi = $donvi->DonviGetAll();
                     ?>
                 <label>Đơn vị</label>
-                <select class="form-select" aria-label="Default select example" require name="id_donvi">
+                <select class="form-control" aria-label="Default select example" require name="id_donvi">
                     
                     <?php
                         foreach ($list_donvi as $dv) {
@@ -103,7 +103,7 @@ require './element/mod/PhanloaiCls.php';
                         $list_phanloai = $phanloai->PhanloaiGetAll();
                     ?>
                 <label>Phân loại</label>
-                <select class="form-select" aria-label="Default select example" require name="id_phan_loai">
+                <select class="form-control" aria-label="Default select example" require name="id_phan_loai">
                     
                     <?php
                         foreach ($list_phanloai as $pl) {

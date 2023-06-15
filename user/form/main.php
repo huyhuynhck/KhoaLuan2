@@ -26,6 +26,9 @@
                             case 'quanlyuser':
                                 require 'form/Taikhoan/Quanly.php';
                                 break;
+                            case 'accountview':
+                                require 'form/ViewUser/AccountView.php';
+                                break;
                             }
                     } else {
                         require 'center.php';

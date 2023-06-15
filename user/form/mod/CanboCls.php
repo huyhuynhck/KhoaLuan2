@@ -39,6 +39,14 @@ class canbo extends database {
         $getAll->execute();
         return $getAll->fetchAll();
     }
+    /* Phương thức CanboGetbyId: chọn thông tin cán bộ bằng id */
+
+    public function CanboGetbyId($id_canbo) {
+        $getTk = $this->connect->prepare("select * from canbo where id_canbo=?");
+        $getTk->setFetchMode(PDO::FETCH_OBJ);
+        $getTk->execute(array($id_canbo));
+        return $getTk->fetchAll();
+    }
 }
 
 ?>
