@@ -55,7 +55,7 @@
                         <label class="">Chọn kỳ</label>
                         <input type="hidden" name="id_index" value="<?=$id_index?>">
                         <select name="id_index_" id="id_index" required="" onchange="location = this.value;"
-                            class="form-select w-fct">
+                            class="form-control w-fct">
                             <option value="../admin/index.php?req=viewluong&id_index=<?= $indexcount__Get_By_Id->id_index; ?>">
                                 <?= $indexcount__Get_By_Id->ten_index; ?>
                                 (<?=date('d/m/Y', strtotime($indexcount__Get_By_Id->ngay_bat_dau))?> -
@@ -88,7 +88,7 @@
                     <div class="form-group">
                         <input type="hidden" name="id_index" value=<?=$id_index?>>
                         <label class="">Chọn nhân viên chưa có bảng lương</label>
-                        <select name="id_nv" id="id_nv" required="" class="form-select w-fct">
+                        <select name="id_nv" id="id_nv" required="" class="form-control w-fct">
                             <?php foreach ($luong__Get_Nhan_Vien_By_Id_Index_Not_In as $item) :?>
                             <option value="<?=$item->id_nv; ?>">
                                 <?= $item->ho_ten ?></option>
@@ -108,7 +108,7 @@
                     <div class="form-group">
                         <input type="hidden" name="id_index" value=<?=$id_index?>>
                         <label class="">Chọn Kỳ để copy</label>
-                        <select name="id_index_copy" id="id_index_copy" required="" class="form-select">
+                        <select name="id_index_copy" id="id_index_copy" required="" class="form-control">
                             <?php foreach ($indexcount__Get_All as $item) :?>
                             <?php if($item->id_index != $id_index):?>
                             <option value="<?= $item->id_index; ?>">

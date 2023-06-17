@@ -40,7 +40,7 @@ require './element/mod/LoaiGDCls.php';
             </div>
             <div class="form-select"> 
                 <label>Loại giảng dạy</label>
-                <select class="form-select" name="tenloai">
+                <select class="form-control" name="tenloai">
                     <?php
                         foreach ($list_loaigiangday as $v) {
                             ?>

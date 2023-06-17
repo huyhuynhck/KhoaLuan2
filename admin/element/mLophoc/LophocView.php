@@ -26,7 +26,7 @@ require './element/mod/NganhhocCls.php';
                     $list_khoahoc = $khoahoc->KhoahocGetAll();
                 ?>
                 <label>Tên khoá học</label>
-                <select class="form-select" aria-label="Default select example" required name="id_khoahoc">
+                <select class="form-control" aria-label="Default select example" required name="id_khoahoc">
                 <?php
                     foreach ($list_khoahoc as $kh) {
                         ?>
@@ -44,7 +44,7 @@ require './element/mod/NganhhocCls.php';
                         $list_nganhhoc = $nganhhoc->NganhhocGetAll();
                     ?>
                 <label>Tên ngành học</label>
-                <select class="form-select" aria-label="Default select example" required name="id_nganhhoc">
+                <select class="form-control" aria-label="Default select example" required name="id_nganhhoc">
                     
                     <?php
                         foreach ($list_nganhhoc as $nh) {

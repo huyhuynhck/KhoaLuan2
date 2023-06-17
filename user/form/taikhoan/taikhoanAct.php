@@ -24,20 +24,18 @@ if (isset($_GET['reqact'])) {
                 setcookie("error", "Đăng nhập không thành công!");
             }
             break;
-            case 'setpassword':
-                $ten_taikhoan = $_POST['ten_taikhoan'];
-                $passwordold = $_POST['passwordold'];
-                $passwordnew = $_POST['passwordnew'];
+        case 'change':
+            $id_taikhoan = $_POST['id_taikhoan'];
+            $matkhau = $_POST['matkhau'];
                 
-    
-                $taikhoan = new taikhoan();
-                $rs = $taikhoan->TaikhoanChangePassword($ten_taikhoan, $passwordold, $passwordnew);
-                if ($rs) {
-                    header('location:../../indexuser.php&ok');
-                } else {
-                    header('location:../../indexuser.php&notok');
-                }
-                break;
+            $taikhoan = new taikhoan();
+            $rs = $taikhoan->TaikhoanChangePassword($id_taikhoan, $matkhau);
+            if ($rs) {
+                header('location:../../indexuser.php');
+            } else {
+                header('location:../../indexuser.php');
+            }
+        break;
         default :
             header('location:../../indexuser.php');
     }

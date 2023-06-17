@@ -167,3 +167,11 @@ div#myTable_2_wrapper {
 div#myTable_3_wrapper {
     overflow-x: auto;
 }
+
+tbody {
+    text-align: center;
+}
+
+thead {
+    text-align: center;
+}

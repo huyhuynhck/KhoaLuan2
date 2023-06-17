@@ -77,12 +77,14 @@ class taikhoan extends database {
         return $getTk->fetch();
     }
     
+
     public function TaikhoanGetName() {
-        $getAll = $this->connect->prepare("SELECT * FROM taikhoan,canbo WHERE taikhoan.id_canbo=canbo.id_canbo;");
+        $getAll = $this->connect->prepare("SELECT * FROM taikhoan, canbo WHERE taikhoan.id_canbo=canbo.id_canbo");
         $getAll->setFetchMode(PDO::FETCH_OBJ);
         $getAll->execute();
-        return $getAll->fetchAll();
+        return $getAll->fetch();
     }
+    
 }
 
 ?>

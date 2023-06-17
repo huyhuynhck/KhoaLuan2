@@ -28,6 +28,7 @@ if (isset($_GET['reqact'])) {
                 }
                 break;
         case 'updatedonvi':
+            $id_donvi = $_POST['id_donvi'];
             $ma_donvi = $_POST['ma_donvi'];
             $ten_donvi = $_POST['ten_donvi'];
             $mota = $_POST['mota'];

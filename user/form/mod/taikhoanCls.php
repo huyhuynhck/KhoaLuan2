@@ -46,23 +46,13 @@ class taikhoan extends database {
 
     /* Phương thức UserChangePassword: đổi password người dùng */
 
-    public function TaikhoanChangePassword($ten_taikhoan, $passwordold, $passwordnew) {
-        $selectMK = $this->connect->prepare("select matkhau from taikhoan where ten_taikhoan=?");
-        $selectMK->setFetchMode(PDO::FETCH_OBJ);
-        $selectMK->execute(array($ten_taikhoan));
-        if (count($selectMK->fetch()) > 0) {
-            $temp = $selectMK->fetch();
-            if ($passwordold == $temp->matkhau) {
-                $update = $this->connect->prepare("update taikhoan set matkhau=? where ten_taikhoan=?");
-                $update->execute(array($passwordnew, $ten_taikhoan));
-                return $update->rowCount();
-            } else {
-                return FALSE;
-            }
-        } else {
-            return FALSE;
-        }
+    public function TaikhoanChangePassword($id_taikhoan, $matkhau) {
+        $selectMK = $this->connect->prepare("UPDATE taikhoan SET matkhau=? WHERE id_taikhoan=?");
+        $selectMK->execute(array($id_taikhoan, $matkhau));
+        return $selectMK->rowCount();
     }
+
+    
     public function UserGetbyName($username) {
         $getTk = $this->connect->prepare("select * from user where username=?");
         $getTk->setFetchMode(PDO::FETCH_OBJ);
@@ -76,6 +66,12 @@ class taikhoan extends database {
         $getAll->execute();
         $list = $getAll->fetchAll();
         return count($list);
+    }
+    public function TaikhoanGetbyId($id_taikhoan) {
+        $getTk = $this->connect->prepare("select * from taikhoan where id_taikhoan=?");
+        $getTk->setFetchMode(PDO::FETCH_OBJ);
+        $getTk->execute(array($id_taikhoan));
+        return $getTk->fetch();
     }
 }
 

@@ -64,7 +64,7 @@ class donvi extends database {
     /* Phương thức DonviUpdate: cập nhật dữ liệu người dùng */
 
     public function DonviUpdate($ma_donvi, $ten_donvi, $mota, $id_donvi) {
-        $update = $this->connect->prepare("UPDATE donvi SET ma_donvi = ?, ten_donvi=?, mota=?, id_donvi=?");
+        $update = $this->connect->prepare("UPDATE donvi SET ma_donvi = ?, ten_donvi=?, mota=? WHERE id_donvi=?");
         $update->execute(array($ma_donvi, $ten_donvi, $mota, $id_donvi));
         return $update->rowCount();
     }

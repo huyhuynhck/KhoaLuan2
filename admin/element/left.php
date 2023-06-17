@@ -31,7 +31,7 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Sinh Viên</span>
+                    <span>Quản Lý</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -48,6 +48,7 @@
                         <a class="collapse-item" href="index.php?req=kpiview">KPI</a>
                         <a class="collapse-item" href="index.php?req=viewnhomkpi">Nhóm KPI</a>
                         <a class="collapse-item" href="index.php?req=viewluong">Lương</a>
+                        <a class="collapse-item" href="index.php?req=viewdot">Đợt</a>
                         
                     </div>
                 </div>

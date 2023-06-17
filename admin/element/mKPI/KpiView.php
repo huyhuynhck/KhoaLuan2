@@ -22,7 +22,7 @@
             <form action="./element/mKPI/KpiAct.php?page=kpi&req=add" method="post" enctype="multipart/form-data">
                 <div class="form-group m-1">
                     <label for="">Chọn nhóm kpi</label>
-                    <select class="form-select" required name="id_nhom_kpi">
+                    <select class="form-control" required name="id_nhom_kpi">
                         <?php foreach($nhomkpi__Get_All as $item):?>
                             <option value="<?=$item->id_nhom_kpi?>">
                                 <?=$item->ten_nhom_kpi?>

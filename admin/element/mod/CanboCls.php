@@ -85,6 +85,7 @@ class canbo extends database {
         $list = $getAll->fetchAll();
         return count($list);
     }
+    
     public function CanboGetName() {
         $getAll = $this->connect->prepare("SELECT * from canbo, trinhdo, donvi, phanloai where canbo.id_trinhdo=trinhdo.id_trinhdo and canbo.id_donvi=donvi.id_donvi and canbo.id_phan_loai=phanloai.id_phan_loai");
         $getAll->setFetchMode(PDO::FETCH_OBJ);

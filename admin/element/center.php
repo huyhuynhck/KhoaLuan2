@@ -196,6 +196,12 @@
                             case 'updatetaikhoan':
                                 require './element/mTaikhoan/TaikhoanUpdate.php';
                                 break;
+                            case 'updatedot':
+                                require './element/mDot/DotUpdate.php';
+                                break;
+                            case 'viewdot':
+                                require './element/mDot/DotView.php';
+                                break;
                             }
                     } else {
                         require 'default.php';

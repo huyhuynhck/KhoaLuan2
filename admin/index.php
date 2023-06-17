@@ -5,7 +5,7 @@
         <link type="text/css" rel="stylesheet" href="../assets/css/admin.css"/>
         <link type="text/css" rel="stylesheet" href="../assets/css/test.css"/>
         <script type="text/javascript" src="../assets/js/main.js"></script>
-        <script src="../assets/vendor/pdfmake/pdfmake.min.js"></script>
+        <!-- <script src="../assets/vendor/pdfmake/pdfmake.min.js"></script> -->
         
         <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -62,11 +62,11 @@
     <script src="../assets/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../assets/vendor/chart.js/Chart.min.js"></script>
+    <!-- <script src="../assets/vendor/chart.js/Chart.min.js"></script> -->
 
     <!-- Page level custom scripts -->
-    <script src="../assets/js/demo/chart-area-demo.js"></script>
-    <script src="../assets/js/demo/chart-pie-demo.js"></script>
+    <!-- <script src="../assets/js/demo/chart-area-demo.js"></script>
+    <script src="../assets/js/demo/chart-pie-demo.js"></script> -->
     <script src="../assets/js/docso.js"></script>
 
     <!-- <script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>

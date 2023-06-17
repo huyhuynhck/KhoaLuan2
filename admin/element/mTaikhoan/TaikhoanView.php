@@ -27,7 +27,7 @@ require './element/mod/TaikhoanCls.php';
                         $list_canbo = $canbo->CanboGetAll();
                     ?>
                 <label>Đơn vị</label>
-                <select class="form-select" aria-label="Default select example" require name="id_canbo">
+                <select class="form-control" aria-label="Default select example" require name="id_canbo">
                     
                     <?php
                         foreach ($list_canbo as $dv) {
