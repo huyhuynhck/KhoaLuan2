@@ -14,7 +14,7 @@
 
 <div class="main-container__add-form">
     <div class="text-title">
-        Cập nhật kpi</b>
+        Cập nhật công việc</b>
         <div class="btn_hide">
             <i class='bx bx-window-close'></i>
         </div>
@@ -26,7 +26,7 @@
             value="<?=$id_kpi?>">
         
             <div class="form-group m-1">
-                    <label for="">Chọn nhóm kpi</label>
+                    <label for="">Chọn nhóm công việc</label>
                     <select class="form-select" required name="id_nhom_kpi">
                         <?php foreach($nhomkpi__Get_All as $item):?>
                             <option value="<?=$item->id_nhom_kpi?>">
@@ -40,17 +40,17 @@
         
         <div class="m-1">
             <div class="form-group mt-1">
-                <label for="">Tên KPI</label>
+                <label for="">Tên công việc</label>
                 <input type="text" class="form-control" name="ten_kpi" placeholder='Nhập tên KPI' id="ten_kpi" required
                     value="<?=$kpi__Get_By_Id->ten_kpi?>" />
             </div>
             <div class="form-group mt-1">
-                <label for="">Đơn vị</label>
+                <label for="">Số lượng</label>
                 <input type="number" max='999999999' step='any' class="form-control hp  w-100" name="don_vi_cb"
-                    placeholder='Nhập đơn vị' id="don_vi_cb" required value="<?=$kpi__Get_By_Id->don_vi_cb?>" />
+                    placeholder='Nhập đơn vị' id="don_vi_cb" value="<?=$kpi__Get_By_Id->don_vi_cb?>" />
             </div>
             <div class="form-group mt-1">
-                <label for="">Hệ số</label>
+                <label for="">Quy đổi số tiết</label>
                 <input type="number" max='999999999' step='any' class="form-control hp  w-100" name="he_so_tc"
                     placeholder='Nhập hệ số' id="he_so_tc" required value="<?=$kpi__Get_By_Id->he_so_tc?>" />
             </div>

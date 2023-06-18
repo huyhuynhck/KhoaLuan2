@@ -1,6 +1,61 @@
 <!-- luong-->
 <?php //if($_POST['page_update'] == 'luong'):?>
 
+<style>
+.main-container__add-form {
+    font-family: 'Font Awesome 5 Free';
+}
+.divTable{
+	display: table;
+	width: 100%;
+}
+.divTableRow {
+	display: table-row;
+    height: 50px;
+}
+.divTableRow:hover {background-color: coral;}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+.divTableCell, .divTableHead {
+	display: table-cell;
+	padding: 3px 10px;
+    width: 1000px;
+    border-bottom: 1px solid #ddd;
+    
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+	font-weight: bold;
+}
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+	font-weight: bold;
+}
+.divTableBody {
+	display: table-row-group;
+}
+.divTableBody .divTableRow .divTableCell:first-child {
+    width: 25%;
+}
+.divTableBody .divTableRow:last-child .divTableCell {
+    height: 200px;
+}
+h3{
+    font-size: 20px;
+    display: flex;
+    flex-direction: inherit;
+    justify-content: center;
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+</style>
+
+
 <?php
     require "./form/mod/KPI.php";
 
@@ -23,8 +78,6 @@
         </div>
 
     </div>
-
-    <form action="./element/mKPI/KpiAct.php?page=luong&req=update" method="post" enctype="multipart/form-data" target="_blank">
         <div class="add-nl_up form-control" style="height: auto;">
             <?php $count = 0?>
             <b class="text-name"><?=$luong__Get_By_Id_Nhan_Vien_And_Id_Index[0]->ten_canbo?></b>
@@ -39,99 +92,99 @@
                 <input type="hidden" class="form-control  w-fct" readonly id='tam_tinh'>
             </div>
             <hr>
-            <input type="hidden" value="<?=$id_nv; ?>" name="id_nv">
-            <input type="hidden" value="<?=$id_index; ?>" name="id_index">
+            
+                    <div class="divTableBody">
+                        <div class='divTableRow' style="background-color: salmon">
+                                    <div class="divTableCell">
+                                    <h3>Tên KPI</h3>
+                                    </div>
+                                    <div class="divTableCell">
+                                    <h3>Đơn vị cơ bản</h3>
+                                    </div>
+                                    <div class="divTableCell">
+                                    <h3>Hệ số</h3>
+                                    </div>
+                                    <div class="divTableCell">
+                                    <h3>Thành tiền</h3>
+                                    </div>
+                                    <div class="divTableCell">
+                                    <h3>Số ngày vắng</h3>
+                                    </div>
+                        </div>
+                        <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
+                        <?php foreach($luong__Get_By_Id_Nhan_Vien_And_Id_Index as $item):?>
+                        <?php ++$count?>
+                            
+                            <div class='divTableRow' style="background-color: mistyrose">
+                                <?php if($count  == 1):?>
+                                <div class="divTableCell">
+                                    
+                                    <input readonly class="form-control-plaintext" style="text-align: center;" id="ten_kpi" required value="<?=$item->ten_kpi?>" />
+                                </div>
+                                <div class="divTableCell">
+                                    
+                                    <input readonly class="form-control-plaintext" style="text-align: center;" id="don_vi_cb" required value="<?=$item->don_vi_cb?>" />
+                                </div>
+                                <div class="divTableCell">
+                                    
+                                    <input readonly class="form-control-plaintext" style="text-align: center;" id="he_so_thuc" required value="<?=$item->he_so_thuc?>" />
+                                </div>
+                                <div class="divTableCell">
+                                    
+                                    <input readonly class="form-control-plaintext" style="text-align: center;" id='thanh_tien' required value='<?=$item->thanh_tien?>' />
+                                </div>
+                                <div class="divTableCell">
+                                    
+                                    <input readonly class="form-control-plaintext" style="text-align: center;" id="so_ngay_vang" value='<?=$item->so_ngay_vang == -1 ? $ccnv__Get_By_Count_Vang_By_Id_Nv : $item->so_ngay_vang?>' />
+                                </div>
+                                <?php if(count($luong__Get_By_Id_Nhan_Vien_And_Id_Index) == $count):?>
+                                <div class="divTableCell">
+                                    <a href='#' class='add_form_up_field btn btn-sm btn-primary  m-1 '> <i
+                                            class='bx bx-plus'></i></a>
+                                    <?php if(count($kpi__Get_All_Not_Exist_By_Nhan_Vien_And_Index)>0):?>
+                                    <a href='#' class='add_form_up_field_exist btn btn-sm btn-secondary  m-1 '> <i
+                                            class='bx bx-plus'></i></a>
+                                    <?php endif?>
+                                </div>
+                                <?php endif?>
+                                <?php else:?>
 
-            <?php foreach($luong__Get_By_Id_Nhan_Vien_And_Id_Index as $item):?>
-            <?php ++$count?>
-            <table class="table table-bordered" id="dataTable">
-                <input type="hidden" value="<?=$item->id_luong; ?>" name="id_luong[]">
-                <input type="hidden" value="<?=$item->id_kpi; ?>" name="id_kpi[]">
-                <div class='form-add-nl_up d-flex'>
-                    <?php if($count  == 1):?>
-                    <div class='form-group m-1 w-fct'>
-                        <label for="">Tên KPI</label>
-                        <input type="text" class="form-control" name="ten_kpi[]" readonly placeholder='Nhập tên KPI'
-                            id="ten_kpi" required value="<?=$item->ten_kpi?>" />
+                                <?php if($count  == 2):?>
+                                    <div class="divTableCell">
+                                    <input readonly class="form-control-plaintext" style="text-align: center;" id="ten_kpi" required value="<?=$item->ten_kpi?>" />
+                                </div>
+                                <div class="divTableCell">
+                                    <input readonly class="form-control-plaintext" style="text-align: center;" id="don_vi_cb" required value="<?=$item->don_vi_cb?>" />
+                                </div>
+                                <div class="divTableCell">
+                                    <input readonly class="form-control-plaintext" style="text-align: center;" id="he_so_thuc" required value="<?=$item->he_so_thuc?>" />
+                                </div>
+                                <div class="divTableCell">
+                                    <input readonly class="form-control-plaintext" style="text-align: center;" id='thanh_tien' required value='<?=$item->thanh_tien?>' />
+                                </div>
+                                <?php else:?>
+                                <div class="divTableCell">
+                                    <input readonly class="form-control-plaintext" style="text-align: center;" id="ten_kpi" required value="<?=$item->ten_kpi?>" />
+                                </div>
+                                <div class="divTableCell">
+                                    <input readoreadonly class="form-control-plaintext" style="text-align: center;" id="don_vi_cb" required value="<?=$item->don_vi_cb?>" />
+                                </div>
+                                <div class="divTableCell">
+                                    <input readonly class="form-control-plaintext" style="text-align: center;" id="he_so_thuc" required value="<?=$item->he_so_thuc?>" />
+                                </div>
+                                <div class="divTableCell">
+                                    <input readonly class="form-control-plaintext" style="text-align: center;" id='thanh_tien' required value='<?=$item->thanh_tien?>' />
+                                </div>
+                                <?php endif?>
+                                <?php endif?>
+                            </div>
+                            <?php endforeach?>
+                        </table>
                     </div>
-                    <div class=' form-group m-1'>
-                        <label for="">Đơn vị cơ bản</label>
-                        <input type="number" class="form-control" name="don_vi_cb[]"
-                        readonly placeholder='Nhập đơn vị' id="don_vi_cb" required value="<?=$item->don_vi_cb?>" />
-                    </div>
-                    <div class='form-group m-1'>
-                        <label for="">Hệ số</label>
-                        <input type="number" max='999999999' step='any' class="form-control hp" name="he_so_thuc[]"
-                        readonly placeholder='Nhập hệ số' id="he_so_thuc" required value="<?=$item->he_so_thuc?>" />
-                    </div>
-                    <div class='form-group m-1 w-fct'>
-                        <label for="">Thành tiền</label>
-                        <input type='number' max='999999999' step='any' class='form-control hp' name='thanh_tien[]'
-                            readonly placeholder='Thành tiền' id='thanh_tien' required value='<?=$item->thanh_tien?>' />
-                    </div>
-                    <div class='form-group m-1 w-fct'>
-                        <label for="">Số ngày vắng</label>
-                        <input type="number" class="form-control hp" name="so_ngay_vang" placeholder='Số ngày'
-                            id="so_ngay_vang" required step="any" min="0"
-                            value='<?=$item->so_ngay_vang == -1 ? $ccnv__Get_By_Count_Vang_By_Id_Nv : $item->so_ngay_vang?>' />
-                    </div>
-                    <?php if(count($luong__Get_By_Id_Nhan_Vien_And_Id_Index) == $count):?>
-                    <div class='form-group w-fct d-flex'>
-                        <a href='#' class='add_form_up_field btn btn-sm btn-primary  m-1 '> <i
-                                class='bx bx-plus'></i></a>
-                        <?php if(count($kpi__Get_All_Not_Exist_By_Nhan_Vien_And_Index)>0):?>
-                        <a href='#' class='add_form_up_field_exist btn btn-sm btn-secondary  m-1 '> <i
-                                class='bx bx-plus'></i></a>
-                        <?php endif?>
-                    </div>
-                    <?php endif?>
-                    <?php else:?>
-
-                    <?php if($count  == 2):?>
-                    <div class='form-group m-1 w-fct'>
-                        <label for="">Tên KPI</label>
-                        <input type="text" class="form-control" readonly placeholder='Nhập tên KPI' required value="<?=$item->ten_kpi?>">
-                    </div>
-
-                    <div class=' form-group m-1'>
-                        <label for="">Đơn vị cơ bản</label>
-                        <input type="number" max='999999999' step='any' class="form-control hp" name="don_vi_cb[]"
-                        readonly placeholder='Nhập đơn vị' id="don_vi_cb" required value="<?=$item->don_vi_cb?>" />
-                    </div>
-                    <div class='form-group m-1'>
-                        <label for="">Hệ số</label>
-                        <input type="number" max='999999999' step='any' class="form-control hp" name="he_so_thuc[]"
-                        readonly placeholder='Nhập hệ số' id="he_so_thuc" required value="<?=$item->he_so_thuc?>" />
-                    </div>
-                    <div class='form-group m-1 w-fct'>
-                        <label for="">Thành tiền</label>
-                        <input type='number' max='999999999' step='any' class='form-control hp' name='thanh_tien[]'
-                            readonly placeholder='Thành tiền' id='thanh_tien' required value='<?=$item->thanh_tien?>' />
-                    </div>
-                    <?php else:?>
-                    <div class='form-group m-1 w-fct'>
-                        <input type="text" class="form-control" name="ten_kpi" readonly placeholder='Nhập tên KPI'
-                            id="ten_kpi" required value="<?=$item->ten_kpi?>" />
-                    </div>
-                    <div class='form-group m-1'>
-                        <input type="number" max='999999999' step='any' class="form-control hp" name="don_vi_cb[]"
-                        readonly placeholder='Nhập đơn vị' id="don_vi_cb" required value="<?=$item->don_vi_cb?>" />
-                    </div>
-                    <div class='form-group m-1'>
-                        <input type="number" max='999999999' step='any' class="form-control hp" name="he_so_thuc[]"
-                        readonly placeholder='Nhập hệ số' id="he_so_thuc" required value="<?=$item->he_so_thuc?>" />
-                    </div>
-                    <div class='form-group m-1 w-fct'>
-                        <input type='number' max='999999999' step='any' class='form-control hp' name='thanh_tien[]'
-                            readonly placeholder='Thành tiền' id='thanh_tien' required value='<?=$item->thanh_tien?>' />
-                    </div>
-                    <?php endif?>
-                    <?php endif?>
                 </div>
-            </table>
-            <?php endforeach?>
+            </div>
+            
         </div>
-    </form>
 </div>
 <script>
     window.addEventListener('load', function() {

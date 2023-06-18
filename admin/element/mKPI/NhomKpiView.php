@@ -12,19 +12,19 @@
     <div class="main-container__add w-300px">
         <div class="main-container__add-form">
             <div class="text-title">
-                Thêm nhóm KPI
+                Thêm nhóm công việc
                 <div class="text-muted">
                     Vui lòng điền thông tin
                 </div>
             </div>
             <form action="./element/mKPI/KpiAct.php?page=nhom-kpi&req=add" method="post" enctype="multipart/form-data">
                 <div class="form-group mt-1">
-                    <label for="">Tên nhóm KPI</label>
+                    <label for="">Tên nhóm công việc</label>
                     <input type="text" class="form-control" required name="ten_nhom_kpi" id="ten_nhom_kpi">
                 </div>
                 <div class="form-group mt-1">
                     <label for="">Ghi chú</label>
-                    <textarea class="form-control" required name="ghi_chu" id="ghi_chu"></textarea>
+                    <textarea class="form-control" name="ghi_chu" id="ghi_chu"></textarea>
                 </div>
                 <div class="form-group mt-5 t-center">
                     <button type="submit" class="btn btn-success">Thêm</button>
@@ -37,7 +37,7 @@
         <div class="text-title">
             Khu vực hiển thị
             <div class="text-muted">
-                <b>Nhóm KPI: <?=count($nhomkpi__Get_All)?> </b>
+                <b>Nhóm công việc: <?=count($nhomkpi__Get_All)?> </b>
             </div>
         </div>
         <div class="table-responsive">
@@ -45,7 +45,7 @@
                 <thead>
                     <tr class="title_table">
                         <td>#</td>
-                        <td>Tên nhóm KPI</td>
+                        <td>Tên nhóm công việc</td>
                         <td>Ghi chú</td>
                         
                         <td></td>

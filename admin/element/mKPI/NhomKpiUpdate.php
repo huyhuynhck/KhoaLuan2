@@ -11,7 +11,7 @@
 
 <div class="main-container__add-form">
     <div class="text-title">
-        Cập nhật nhóm kpi</b>
+        Cập nhật nhóm công việc</b>
         <div class="btn_hide">
             <i class='bx bx-window-close'></i>
         </div>
@@ -19,12 +19,12 @@
     </div>
 
     <form action="./element/mKPI/KpiAct.php?page=nhom-kpi&req=update" method="post" enctype="multipart/form-data">
-        <input type="hidden" id="id_nhom_kpi" name="id_nhom_kpi" class="form-control" required readonly required
+        <input type="hidden" id="id_nhom_kpi" name="id_nhom_kpi" class="form-control" required readonly
             value="<?=$id_nhom_kpi?>">
         <div class="m-1">
             <div class="form-group mt-1">
-                <label for="">Tên nhóm kpi</label>
-                <input type="text" id="ten_nhom_kpi" name="ten_nhom_kpi" class="form-control" required="" required
+                <label for="">Tên nhóm công việc</label>
+                <input type="text" id="ten_nhom_kpi" name="ten_nhom_kpi" class="form-control" required
                     value="<?=$nhomkpi__Get_By_Id->ten_nhom_kpi?>" />
             </div>
 

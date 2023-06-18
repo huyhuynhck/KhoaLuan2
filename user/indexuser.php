@@ -53,7 +53,24 @@
 
   <script src="../assets/js/docso.js"></script>
 	<script src="../assets/js/userjs.js"></script>
-  
+  <script>
+        function confirm_sweet(href){
+            Swal.fire({
+                title: 'Bạn có muốn xoá không?',
+                text: "Dữ liệu sẽ bị xoá vĩnh viễn!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Đồng ý'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = href;
+                }
+                });
+        }
+        
+    </script>
 
   
 </body>

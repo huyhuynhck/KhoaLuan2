@@ -69,28 +69,6 @@
                     </div>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>View</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Xem:</h6>
-                        <a class="collapse-item" href="index.php?req=lophocxem">Lớp học</a>
-                        <a class="collapse-item" href="index.php?req=nganhhocxem">Ngành học</a>
-                        <a class="collapse-item" href="index.php?req=canboxem">Cán bộ</a>
-                        <a class="collapse-item" href="index.php?req=donvixem">Đơn vị</a>
-                        <a class="collapse-item" href="index.php?req=giangdayxem">Giảng dạy</a>
-                        <a class="collapse-item" href="index.php?req=giangvienxem">Giảng viên</a>
-                        <a class="collapse-item" href="index.php?req=khoahocxem">Khoá học</a>
-                        <a class="collapse-item" href="index.php?req=sinhvienxem">Sinh viên</a>
-                        <a class="collapse-item" href="index.php?req=kpixem">KPI</a>
-                    </div>
-                </div>
-            </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

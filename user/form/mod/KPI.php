@@ -157,6 +157,12 @@ class kpi extends Database {
         $obj->execute(array($id_index));
         return $obj->fetchAll();
     }
+    public function luong__Get_By_Index_Group_By_Nhan_Vien_Current($id_index, $id_canbo) {
+        $obj = $this->connect->prepare("SELECT * FROM luong WHERE id_index=? and id_canbo=? GROUP BY id_canbo");
+        $obj->setFetchMode(PDO::FETCH_OBJ);
+        $obj->execute(array($id_index, $id_canbo));
+        return $obj->fetchAll();
+    }
 
     public function luong__Get_By_Id_Nhan_Vien_And_Id_Index($id_canbo, $id_index) {
         $obj = $this->connect->prepare("SELECT * FROM luong WHERE id_canbo=? AND id_index=?");
@@ -176,6 +182,12 @@ class kpi extends Database {
         $obj = $this->connect->prepare("SELECT * FROM kpi WHERE id_kpi NOT IN (SELECT id_kpi FROM luong WHERE id_index=?)");
         $obj->setFetchMode(PDO::FETCH_OBJ);
         $obj->execute(array($id_index));
+        return $obj->fetchAll();
+    }
+    public function luong__Get_Nhan_Vien_By_Id_Index_Not_In_Current($id_canbo, $id_index) {
+        $obj = $this->connect->prepare("SELECT * FROM nhanvien WHERE id_canbo=? and trang_thai =1 AND id_canbo NOT IN (SELECT id_canbo FROM luong WHERE id_index=?)");
+        $obj->setFetchMode(PDO::FETCH_OBJ);
+        $obj->execute(array($id_canbo, $id_index));
         return $obj->fetchAll();
     }
 

@@ -26,7 +26,7 @@ require './element/mod/TaikhoanCls.php';
                         $canbo = new canbo();
                         $list_canbo = $canbo->CanboGetAll();
                     ?>
-                <label>Đơn vị</label>
+                <label>Tên cán bộ</label>
                 <select class="form-control" aria-label="Default select example" require name="id_canbo">
                     
                     <?php

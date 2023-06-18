@@ -14,14 +14,14 @@
     <div class="main-container__add w-300px">
         <div class="main-container__add-form">
             <div class="text-title">
-                Thêm KPI
+                Thêm công việc
                 <div class="text-muted">
                     Vui lòng điền thông tin
                 </div>
             </div>
             <form action="./element/mKPI/KpiAct.php?page=kpi&req=add" method="post" enctype="multipart/form-data">
                 <div class="form-group m-1">
-                    <label for="">Chọn nhóm kpi</label>
+                    <label for="">Chọn nhóm công việc</label>
                     <select class="form-control" required name="id_nhom_kpi">
                         <?php foreach($nhomkpi__Get_All as $item):?>
                             <option value="<?=$item->id_nhom_kpi?>">
@@ -31,16 +31,16 @@
                     </select>
                 </div>
                 <div class="form-group mt-1">
-                    <label for="">Tên KPI</label>
+                    <label for="">Tên công việc</label>
                     <input type="text" class="form-control" required name="ten_kpi" id="ten_kpi">
                 </div>
                 <div class="form-group mt-1">
-                    <label for="">Đơn vị cơ bản</label>
-                    <input type="currency" class="form-control w-100" required name="don_vi_cb" id="don_vi_cb">
+                    <label for="">Số lượng</label>
+                    <input type="currency" class="form-control w-100"  name="don_vi_cb" id="don_vi_cb">
                 </div>
                 <div class="form-group mt-1">
-                    <label for="">Hệ số tham chiếu</label>
-                    <input type="currency" class="form-control" required name="he_so_tc" id="he_so_tc">
+                    <label for="">Quy đổi số tiết</label>
+                    <input type="currency" class="form-control"  name="he_so_tc" id="he_so_tc">
                 </div>
                 <div class="form-group mt-1">
                     <label for="">Ghi chú</label>
@@ -57,7 +57,7 @@
         <div class="text-title">
             Khu vực hiển thị
             <div class="text-muted">
-                <b>Nhóm KPI: <?=count($kpi__Get_All)?> </b>
+                <b>Công việc: <?=count($kpi__Get_All)?> </b>
             </div>
         </div>
         <div class="table-responsive">
@@ -65,8 +65,8 @@
                 <thead>
                     <tr class="title_table">
                         <td>#</td>
-                        <td>Tên nhóm KPI</td>
-                        <td>Tên KPI</td>
+                        <td>Tên nhóm công việc</td>
+                        <td>Tên công việc</td>
                         <td>Đơn vị cơ bản</td>
                         <td>Hệ số tham chiếu</td>
                         <td>Ghi chú</td>
@@ -92,7 +92,7 @@
                             <i class="far fa-trash-alt"></i>
                         </td>
                         <td>
-                            <a href="./index.php?req=update-nhom-kpi&id_nhom_kpi=<?=$item->id_nhom_kpi?>" class="fas fa-sync-alt"></a>
+                            <a href="./index.php?req=updatekpi&id_kpi=<?=$item->id_kpi?>" class="fas fa-sync-alt"></a>
                         </td>
                      
                     </tr>

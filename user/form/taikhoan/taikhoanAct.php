@@ -14,7 +14,7 @@ if (isset($_GET['reqact'])) {
             $ten_taikhoan = $_POST['ten_taikhoan'];
             $matkhau = $_POST['matkhau'];
             $user = new taikhoan();
-            $rs = $user->TaikhoanCheckLogin($ten_taikhoan, $matkhau);
+            $rs = $user->TaikhoanCheckLoginUser($ten_taikhoan, $matkhau);
             if ($rs != FALSE) {
                 $_SESSION['USER'] = $rs;
 

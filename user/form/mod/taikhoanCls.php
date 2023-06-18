@@ -36,6 +36,18 @@ class taikhoan extends database {
     }
 
 
+    public function TaikhoanCheckLoginUser($username, $password) {
+        $select = $this->connect->prepare("SELECT * from taikhoan, canbo where taikhoan.id_canbo=canbo.id_canbo and ten_taikhoan = ? and matkhau = ?");
+        $select->setFetchMode(PDO::FETCH_OBJ);
+        $select->execute(array($username, $password));
+        if ($select->rowCount() > 0) {
+            return $select->fetch();
+        } else {
+            return FALSE;
+        }
+    }
+
+
     /* Phương thức UserSetActive: khóa tài khoản người dùng */
 
     public function UserSetActive($iduser, $ability) {

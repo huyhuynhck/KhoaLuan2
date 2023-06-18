@@ -33,19 +33,19 @@ class canbo extends database {
         return $getAll->fetchAll();
     }
 
-    public function CanboGetName() {
-        $getAll = $this->connect->prepare("SELECT * from canbo, trinhdo, donvi, phanloai where canbo.id_trinhdo=trinhdo.id_trinhdo and canbo.id_donvi=donvi.id_donvi and canbo.id_phan_loai=phanloai.id_phan_loai");
+    public function CanboGetName($id_canbo) {
+        $getAll = $this->connect->prepare("SELECT * from canbo, trinhdo, donvi, phanloai where canbo.id_trinhdo=trinhdo.id_trinhdo and canbo.id_donvi=donvi.id_donvi and canbo.id_phan_loai=phanloai.id_phan_loai and id_canbo=?");
         $getAll->setFetchMode(PDO::FETCH_OBJ);
-        $getAll->execute();
-        return $getAll->fetchAll();
+        $getAll->execute(array($id_canbo));
+        return $getAll->fetch();
     }
     /* Phương thức CanboGetbyId: chọn thông tin cán bộ bằng id */
 
     public function CanboGetbyId($id_canbo) {
-        $getTk = $this->connect->prepare("select * from canbo where id_canbo=?");
+        $getTk = $this->connect->prepare("SELECT * from canbo where id_canbo=?");
         $getTk->setFetchMode(PDO::FETCH_OBJ);
         $getTk->execute(array($id_canbo));
-        return $getTk->fetchAll();
+        return $getTk->fetch();
     }
 }
 
