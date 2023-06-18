@@ -64,26 +64,11 @@ class taikhoan extends database {
         return $selectMK->rowCount();
     }
 
-    
-    public function UserGetbyName($username) {
-        $getTk = $this->connect->prepare("select * from user where username=?");
-        $getTk->setFetchMode(PDO::FETCH_OBJ);
-        $getTk->execute(array($username));
-        return $getTk->fetch();
-    }
-
-    public function UserCount() {
-        $getAll = $this->connect->prepare("select * from user");
-        $getAll->setFetchMode(PDO::FETCH_OBJ);
-        $getAll->execute();
-        $list = $getAll->fetchAll();
-        return count($list);
-    }
     public function TaikhoanGetbyId($id_taikhoan) {
-        $getTk = $this->connect->prepare("select * from taikhoan where id_taikhoan=?");
+        $getTk = $this->connect->prepare("SELECT * from taikhoan where id_taikhoan=?");
         $getTk->setFetchMode(PDO::FETCH_OBJ);
         $getTk->execute(array($id_taikhoan));
-        return $getTk->fetch();
+        return $getTk->fetchAll();
     }
 }
 

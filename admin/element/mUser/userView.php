@@ -1,6 +1,5 @@
 <div>Quản Lý Người Dùng</div>
 <hr>
-<div>Người dùng mới</div>
 <div>
     <form name="newuser" id="formreg" method="post" action="./element/mUser/userAct.php?reqact=addnew">
         <div class='form'>

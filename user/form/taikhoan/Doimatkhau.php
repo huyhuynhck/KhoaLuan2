@@ -7,7 +7,7 @@
 <div class="container mt-3">
   <h2>Đổi mật khẩu tại đây!!!</h2>
   <form action="" method="POST">
-    <input type="hidden" class="form-control" placeholder="" name="id_taikhoan" value="<?=$list_taikhoan->id_taikhoan?>">
+    <input type="hidden" class="form-control" placeholder="" name="id_taikhoan" value="<?=$id_taikhoan?>">
     <div class="mb-3">
       <label class="form-label">Tên tài khoản:</label>
       <input type="text" class="form-control" placeholder="" name="ten_taikhoan">

@@ -3,7 +3,6 @@ require './element/mod/CongviecCls.php';
 ?>
 <div>Quản Lý Công việc</div>
 <hr>
-<div>Công việc mới</div>
 <div>
 <?php
     $congviec = new congviec();

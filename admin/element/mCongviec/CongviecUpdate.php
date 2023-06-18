@@ -1,11 +1,11 @@
 <div>Cập nhật Công việc</div>
+<hr>
 <?php
 require './element/mod/CongviecCls.php';
 $ma_cv = $_GET['ma_cv'];
 $cv = new congviec();
 $getcv = $cv->CongviecGetbyId($ma_cv);
 ?>
-<div class="title_user">Công việc mới</div>
 <div class="content_user">
 <form name="updatecv" id="formupdate" method="post" action="./element/mCongviec/CongviecAct.php?reqact=updatecongviec">
 <input type="hidden" name="ma_cv" value="<?php echo $ma_cv; ?>"/>

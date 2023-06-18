@@ -1,4 +1,5 @@
 <div>Cập nhật lớp học</div>
+<hr>
 <?php
 require './element/mod/LophocCls.php';
 require './element/mod/KhoahocCls.php';
@@ -7,7 +8,7 @@ $id_lophoc = $_GET['id_lophoc'];
 $lophoc = new lophoc();
 $getlophoc = $lophoc->LophocGetbyId($id_lophoc);
 ?>
-<div class="title_user">Lớp học mới</div>
+
 <div class="content_user">
     <form name="updatelophoc" id="formupdate" method="post" action="./element/mLophoc/LophocAct.php?reqact=updatelophoc">
     <input type="hidden" name="id_lophoc" value="<?php echo $id_lophoc; ?>"/>

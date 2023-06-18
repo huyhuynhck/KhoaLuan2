@@ -75,7 +75,7 @@ require './element/mod/indexcount.php';
                                         <?php
                                             if (isset($_SESSION['ADMIN'])) {
                                                 ?>
-                                                <a onclick="return confirm_sweet('./element/mDot/DotAct.php?req=deletedot&id_index=<?=$v->id_index?>')">
+                                                <a onclick="return confirm_sweet('./element/mDot/DotAct.php?reqact=deletedot&id_index=<?=$v->id_index?>')">
                                                     <img class="iconimg" src="./Image/delete.png">
                                                 </a>
                                                 <?php

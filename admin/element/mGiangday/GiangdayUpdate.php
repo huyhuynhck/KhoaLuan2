@@ -1,4 +1,5 @@
 <div>Cập nhật giảng dạy</div>
+<hr>
 <?php
 require './element/mod/GiangdayCls.php';
 $ma_giangday = $_GET['ma_giangday'];
@@ -10,7 +11,6 @@ $loaigiangday = new loaigiangday();
 $list_loaigiangday = $loaigiangday->LoaiGDGetAll();
 $l = count($list_loaigiangday);
 ?>
-<div class="title_user">Giảng dạy mới</div>
 <div class="content_user">
     <form name="updategiangday" id="formupdate" method="post" action="./element/mGiangday/GiangdayAct.php?reqact=updategiangday">
         <div class="form">

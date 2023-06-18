@@ -5,7 +5,7 @@ require './element/mod/NganhhocCls.php';
 ?>
 <div>Quản Lý lớp học</div>
 <hr>
-<div>Lớp học mới</div>
+
 <div>
 <?php
     

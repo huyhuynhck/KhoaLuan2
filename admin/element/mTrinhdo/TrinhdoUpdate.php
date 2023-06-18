@@ -1,11 +1,11 @@
 <div>Cập nhật Trình độ</div>
+<hr>
 <?php
 require './element/mod/TrinhdoCls.php';
 $id_trinhdo = $_GET['id_trinhdo'];
 $trinhdo = new trinhdo();
 $gettrinhdo = $trinhdo->TrinhdoGetbyId($id_trinhdo);
 ?>
-<div class="title_user">Trình độ mới</div>
 <div class="content_user">
     <form name="updatetrinhdo" id="formupdate" method="post" action="./element/mTrinhdo/TrinhdoAct.php?reqact=updatetrinhdo">
         <div class="form">

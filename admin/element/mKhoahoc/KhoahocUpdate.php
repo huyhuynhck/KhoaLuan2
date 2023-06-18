@@ -1,11 +1,12 @@
 <div>Cập nhật khoá học</div>
+<hr>
 <?php
 require './element/mod/KhoahocCls.php';
 $id_khoahoc = $_GET['id_khoahoc'];
 $khoahoc = new khoahoc();
 $getkhoahoc = $khoahoc->KhoahocGetbyId($id_khoahoc);
 ?>
-<div class="title_user">Khoá học mới</div>
+
 <div class="content_user">
     <form name="updatekhoahoc" id="formupdate" method="post" action="./element/mKhoahoc/KhoahocAct.php?reqact=updatekhoahoc">
         

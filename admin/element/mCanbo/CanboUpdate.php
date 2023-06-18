@@ -1,4 +1,5 @@
 <div>Cập nhật Cán bộ</div>
+<hr>
 <?php
 require './element/mod/TrinhdoCls.php';
 require './element/mod/DonviCls.php';
@@ -10,7 +11,6 @@ $id_canbo = $_GET['id_canbo'];
 $canbo = new canbo();
 $getcanbo = $canbo->CanboGetbyId($id_canbo);
 ?>
-<div class="title_user">Cán bộ mới</div>
 <div class="content_user">
     <form name="updatecanbo" id="formupdate" method="post" action="./element/mCanbo/CanboAct.php?reqact=updatecanbo">
         <input type="hidden" name="id_canbo" value="<?php echo $id_canbo; ?>"/>

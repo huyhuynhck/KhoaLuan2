@@ -63,9 +63,9 @@ class phanloai extends database {
 
     /* Phương thức phanloaiUpdate: cập nhật dữ liệu người dùng */
 
-    public function PhanloaiUpdate($ten_phanloai, $ghi_chu) {
-        $update = $this->connect->prepare("UPDATE phanloai SET ten_phanloai=?, ghi_chu=?");
-        $update->execute(array($ten_phanloai, $ghi_chu));
+    public function PhanloaiUpdate($ten_phan_loai, $ghi_chu, $id_phan_loai) {
+        $update = $this->connect->prepare("UPDATE phanloai SET ten_phan_loai=?, ghi_chu=? where id_phan_loai=?");
+        $update->execute(array($ten_phan_loai, $ghi_chu, $id_phan_loai));
         return $update->rowCount();
     }
 

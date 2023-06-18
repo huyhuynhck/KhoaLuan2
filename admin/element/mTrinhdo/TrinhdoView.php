@@ -1,6 +1,5 @@
 <div>Quản Lý Trình độ</div>
 <hr>
-<div>Trình độ mới</div>
 <div>
     <form name="newtrinhdo" id="formreg" method="post" action="./element/mTrinhdo/TrinhdoAct.php?reqact=addnew">
     <div class="form">

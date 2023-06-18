@@ -56,5 +56,13 @@ class nhomkpi extends Database {
         $obj->execute(array($id_nhom_kpi));
         return $obj->rowCount();
     }
+    /* Đếm dữ liệu trong DB*/
+    public function NhomKpiCount() {
+        $getAll = $this->connect->prepare("select * from nhomkpi");
+        $getAll->setFetchMode(PDO::FETCH_OBJ);
+        $getAll->execute();
+        $list = $getAll->fetchAll();
+        return count($list);
+    }
 }
 ?>

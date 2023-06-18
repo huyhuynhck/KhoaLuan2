@@ -1,11 +1,11 @@
 <div>Cập nhật người dùng</div>
+<hr>
 <?php
 require './element/mod/userCls.php';
 $iduser = $_GET['iduser'];
 $user = new user();
 $getuser = $user->UserGetbyId($iduser);
 ?>
-<div class="title_user">Người dùng mới</div>
 <div>
     <form name="updateuser" id="formupdate" method="post" action="./element/mUser/userAct.php?reqact=updateuser">
         <input required type="hidden" name="iduser" value="<?php echo $iduser; ?>"/>

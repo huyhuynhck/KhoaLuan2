@@ -1,6 +1,6 @@
 <div>Quản Lý ngành học</div>
 <hr>
-<div>Ngành học mới</div>
+
 <div>
     <form name="newnganhhoc" id="formreg" method="post" action="./element/mNganhhoc/NganhhocAct.php?reqact=addnew">
     <div class="form">

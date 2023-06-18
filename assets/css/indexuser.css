@@ -5,9 +5,12 @@
 
 body {
     margin-bottom: 80px;
-    margin-top: 60px;
     font-family: auto;
     font-size: 20px;
+}
+
+#top_div {
+    background-color: #33CC33;
 }
 
 .footer {

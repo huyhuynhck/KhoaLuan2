@@ -1,11 +1,12 @@
 <div>Cập nhật nhÓm công việc</div>
+<hr>
 <?php
 require './element/mod/NhomCvCls.php';
 $ma_nhomcv = $_GET['ma_nhomcv'];
 $nhomcv = new nhomcv();
 $getnhomcv = $nhomcv->NhomCvGetbyId($ma_nhomcv);
 ?>
-<div class="title_user">Khoá học mới</div>
+
 <div class="content_user">
     <form name="updatenhomcv" id="formupdate" method="post" action="./element/mNhomCv/NhomCvAct.php?reqact=updatenhomcv">
         

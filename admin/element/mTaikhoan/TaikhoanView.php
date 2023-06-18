@@ -4,7 +4,7 @@ require './element/mod/TaikhoanCls.php';
 ?>
 <div>Quản Lý Tài khoản</div>
 <hr>
-<div>Tài khoản mới</div>
+
 <div>
 <?php
     $taikhoan = new taikhoan();

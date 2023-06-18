@@ -1,4 +1,5 @@
 <div>Cập nhật Tài khoản</div>
+</br>
 <?php
 require './element/mod/CanboCls.php';
 ?>
@@ -8,7 +9,6 @@ $id_taikhoan = $_GET['id_taikhoan'];
 $taikhoan = new taikhoan();
 $gettaikhoan = $taikhoan->TaikhoanGetbyId($id_taikhoan);
 ?>
-<div class="title_user">Tài khoản mới</div>
 <div class="content_user">
     <form name="updatetaikhoan" id="formupdate" method="post" action="./element/mTaikhoan/TaikhoanAct.php?reqact=updatetaikhoan">
         <input type="hidden" name="id_taikhoan" value="<?php echo $id_taikhoan; ?>"/>
@@ -27,7 +27,7 @@ $gettaikhoan = $taikhoan->TaikhoanGetbyId($id_taikhoan);
                     $list_canbo = $canbo->CanboGetAll();
                 ?>
                 <label>Cán bộ</label>
-                <select class="form-select" aria-label="Default select example" require name="id_canbo">
+                <select class="form-control" aria-label="Default select example" require name="id_canbo">
                 <?php
                     foreach ($list_canbo as $td) {
                         ?>

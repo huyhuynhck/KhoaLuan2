@@ -4,7 +4,7 @@ require './element/mod/LophocCls.php';
 ?>
 <div>Quản Lý Sinh viên</div>
 <hr>
-<div>Sinh viên mới</div>
+
 <div>
 <?php
     $sinhvien = new sinhvien();

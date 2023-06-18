@@ -1,16 +1,21 @@
-<div>Quản Lý Phân nhóm</div>
+<?php
+require './element/mod/PhanloaiCls.php';
+?>
+<div>Quản Lý phân loại</div>
 <hr>
-<div>Phân nhóm mới</div>
 <div>
-    <form name="newphannhom" id="formreg" method="post" action="./element/mPhannhom/PhannhomAct.php?reqact=addnew">
+<?php
+    
+    ?>
+    <form name="newphanloai" id="formreg" method="post" action="./element/mPhanloai/PhanloaiAct.php?reqact=addnew">
     <div class="form">
         <div class="form-group">
-            <label>Tên Phân nhóm:</label>
-            <input required class="form-control" type="text" name="ten_phannhom">
+            <label>Tên phân loại:</label>
+            <input required class="form-control" type="text" name="ten_phan_loai">
         </div>
         <div class="form-group">
-            <label>Mô tả:</label>
-            <input required class="form-control" type="text" name="mota">
+            <label>Ghi chú:</label>
+            <input class="form-control" type="text" name="ghi_chu">
         </div>
         <div class="form-group mt-2">
             <input class='btn btn-success' type="submit" id="btnsubmit" value="Tạo mới">
@@ -21,51 +26,46 @@
 </div>
 <hr/>
 <?php
-require './element/mod/PhannhomCls.php';
-?>
-<div class="title_phannhom">Danh sách Phân nhóm</div>
-<div class="content_phannhom">
-    <?php
-    $phannhom = new phannhom();
-    $list_phannhom = $phannhom->phannhomGetAll();
-    $l = count($list_phannhom);
+    $phanloai = new phanloai();
+    $list_phanloai = $phanloai->PhanloaiGetAll();
+    $l = count($list_phanloai);
     ?>
-    <p>Trong bảng có <b><?php echo $l; ?></b></p>
+   <p>Trong bảng có <b><?php echo $l; ?></b></p>
     <?php
     if ($l > 0) {
         ?>
+        <h1 class="h3 mb-2 text-gray-800">Danh sách phân loại</h1>           
+        <!-- DataTales ExamPle -->
         <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Id Phân nhóm</th>
-                                <th>Tên Phân nhóm</th>
-                                <th>Mô tả</th>
+                                <th>Tên phân loại</th>
+                                <th>Ghi chú</th>
                                 <th>Xóa</th>
                                 <th>Cập nhật</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            foreach ($list_phannhom as $v) {
+                            foreach ($list_phanloai as $v) {
                                 ?>
                                 <tr>
-                                    <td><?php echo $v->id_phannhom; ?></td>
-                                    <td><?php echo $v->ten_phannhom; ?></td>
-                                    <td><?php echo $v->mota; ?></td>
-                                    <td>
+                                    <td><?php echo $v->ten_phan_loai; ?></td>
+                                    <td><?php echo $v->ghi_chu; ?></td>
+                                    <td  class="t-right">
                                         <?php
                                         if (isset($_SESSION['ADMIN'])) {
                                             ?>
-                                            <a href="./element/mPhannhom/PhannhomAct.php?reqact=deletephannhom&id_phannhom=<?php echo $v->id_phannhom; ?>">
-                                                <img class="iconimg" src="./Image/delete.png">
-                                            </a>
+                                                
+                                                <i class="far fa-trash-alt" onclick="return confirm_sweet('./element/mPhanloai/PhanloaiAct.php?reqact=deletephanloai&id_phan_loai=<?php echo $v->id_phan_loai; ?>')"></i>
+                                            
                                             <?php
                                         } else {
                                             ?>
-                                            <img class="iconimg" src="./Image/delete.png">
+                                            <img class="far fa-trash-alt">
                                             <?php
                                         }
                                         ?>
@@ -76,13 +76,14 @@ require './element/mod/PhannhomCls.php';
             //                                    isset($_SESSION['USER']) and
                                                 $v->username = 'admin') {
                                             ?>
-                                            <a href="index.php?req=updatephannhom&id_phannhom=<?php echo $v->id_phannhom; ?>">
-                                                <img class="iconimg" src="./Image/update.png">
+                                            <a href="index.php?req=updatephanloai&id_phan_loai=<?php echo $v->id_phan_loai; ?>">
+                                                <i class="fas fa-sync-alt"></i>
                                             </a>
+                                            
                                             <?php
                                         } else {
                                             ?>
-                                            <img class="iconimg" src="./Image/update.png">
+                                            <i class="fas fa-sync-alt"></i>
                                             <?php
                                         }
                                         ?>

@@ -1,11 +1,12 @@
 <div>Cập nhật lớp học</div>
+<hr>
 <?php
 require './element/mod/NganhhocCls.php';
 $id_nganhhoc = $_GET['id_nganhhoc'];
 $nganhhoc = new nganhhoc();
 $getnganhhoc = $nganhhoc->NganhhocGetbyId($id_nganhhoc);
 ?>
-<div class="title_user">Lớp học mới</div>
+
 <div class="content_user">
     <form name="updatenganhhoc" id="formupdate" method="post" action="./element/mNganhhoc/NganhhocAct.php?reqact=updatenganhhoc">
         <div class="form">

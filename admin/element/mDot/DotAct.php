@@ -39,7 +39,7 @@ if (isset($_GET['reqact'])) {
             $ghi_chu = $_POST['ghi_chu'];
 
             $dot = new indexcount();
-            $rs = $dot->indexcount__Update($id_index, $ten_index, $ngay_bat_dau, $ngay_ket_thuc, $so_ngay_hoat_dong, $ghi_chu);
+            $rs = $dot->indexcount__Update($id_index, $ten_index,$ngay_bat_dau,$ngay_ket_thuc,$so_ngay_hoat_dong,$ghi_chu);
             if ($rs) {
                 header('location:../../index.php?req=viewdot&result=ok');
             } else {

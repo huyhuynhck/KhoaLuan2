@@ -3,7 +3,7 @@
 ?>
 <div>Quản Lý khoá học</div>
 <hr>
-<div>Khoá học mới</div>
+
 <div>
     <?php
         $congviec = new congviec();

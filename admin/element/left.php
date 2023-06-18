@@ -1,11 +1,11 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="./index.php">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" style="height: 6.375rem;" href="./index.php">
+                <div class="">
+                    <img src="./Image/avt-taydo.png" style="width: 90px;">
+                    <div class="sidebar-brand-text mx-3">Admin<sup>hihi</sup></div>
                 </div>
-                <div class="sidebar-brand-text mx-3">Admin<sup>hihi</sup></div>
             </a>
 
             <!-- Divider -->
@@ -37,18 +37,19 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Thêm:</h6>
                         <a class="collapse-item" href="index.php?req=userview">Admin</a>
-                        <a class="collapse-item" href="index.php?req=lophocview">Lớp học</a>
-                        <a class="collapse-item" href="index.php?req=nganhhocview">Ngành học</a>
                         <a class="collapse-item" href="index.php?req=canboview">Cán bộ</a>
                         <a class="collapse-item" href="index.php?req=donviview">Đơn vị</a>
-                        <a class="collapse-item" href="index.php?req=giangdayview">Giảng dạy</a>
-                        <a class="collapse-item" href="index.php?req=giangvienview">Giảng viên</a>
-                        <a class="collapse-item" href="index.php?req=khoahocview">Khoá học</a>
                         <a class="collapse-item" href="index.php?req=trinhdoview">Trình độ</a>
-                        <a class="collapse-item" href="index.php?req=kpiview">KPI</a>
-                        <a class="collapse-item" href="index.php?req=viewnhomkpi">Nhóm KPI</a>
-                        <a class="collapse-item" href="index.php?req=viewluong">Lương</a>
+                        <a class="collapse-item" href="index.php?req=kpiview">Công Việc</a>
+                        <a class="collapse-item" href="index.php?req=viewnhomkpi">Nhóm Công Việc</a>
+                        <a class="collapse-item" href="index.php?req=viewluong">Giờ Dạy</a>
                         <a class="collapse-item" href="index.php?req=viewdot">Đợt</a>
+                        <a class="collapse-item" href="index.php?req=lophocview">Lớp học</a>
+                        <a class="collapse-item" href="index.php?req=phanloaiview">Phân loại</a>
+                        <a class="collapse-item" href="index.php?req=nganhhocview">Ngành học</a>
+                        <a class="collapse-item" href="index.php?req=giangdayview">Giảng dạy</a>
+                        <a class="collapse-item" href="index.php?req=khoahocview">Khoá học</a>
+                        
                         
                     </div>
                 </div>

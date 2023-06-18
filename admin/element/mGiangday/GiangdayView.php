@@ -4,7 +4,6 @@ require './element/mod/LoaiGDCls.php';
 ?>
 <div>Quản Lý Giảng dạy</div>
 <hr>
-<div>Giảng dạy mới</div>
 <div>
 <?php
     $loaigiangday = new loaigiangday();

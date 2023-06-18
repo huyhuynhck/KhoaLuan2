@@ -1,11 +1,11 @@
 <div>Cập nhật Đơn vị</div>
+<hr>
 <?php
 require './element/mod/DonviCls.php';
 $id_donvi = $_GET['id_donvi'];
 $donvi = new donvi();
 $getdonvi = $donvi->DonviGetbyId($id_donvi);
 ?>
-<div class="title_user">Đơn vị mới</div>
 <div class="content_user">
     <form name="updatedonvi" id="formupdate" method="post" action="./element/mDonvi/DonviAct.php?reqact=updatedonvi">
         <div class="form">

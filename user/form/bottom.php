@@ -3,6 +3,7 @@
                     header('location: ../user/indexuser.php');
                 }
                 ?>
+
 <!-- Bottom Nav Bar -->
 <div class="footer">
          <div id="buttonGroup" class="btn-group selectors" role="group" aria-label="Basic example">
@@ -15,7 +16,7 @@
             
             <button id="feed" type="button" class="btn btn-secondary button-inactive" >
                <div class="selector-holder">
-               <a class="fas fa-key" style="color: black; text-decoration: none" href="./indexuser.php?req=viewdoimatkhau&id_taikhoan=<?= $_SESSION['USER']->id_taikhoan?>" ><br><span >Đổi Pass</span></a>
+               <a class="fas fa-key" style="color: black; text-decoration: none" href="./indexuser.php?req=viewdoimatkhau&id_taikhoan=<?=$_SESSION['USER']->id_taikhoan?>" ><br><span >Đổi Pass</span></a>
                </div>
             </button>
             <button id="account" type="button" class="btn btn-secondary button-inactive">

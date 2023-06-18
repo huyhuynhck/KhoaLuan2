@@ -1,6 +1,5 @@
 <div>Quản Lý Đơn Vị</div>
 <hr>
-<div>Đơn vị mới</div>
 <div>
     <form name="newdonvi" id="formreg" method="post" action="./element/mDonvi/DonviAct.php?reqact=addnew">
     <div class="form">

@@ -1,4 +1,5 @@
 <div>Cập nhật Sinh viên</div>
+<hr>
 <?php
 require './element/mod/SinhvienCls.php';
 require './element/mod/LophocCls.php';
@@ -6,7 +7,7 @@ $id_sinhvien = $_GET['id_sinhvien'];
 $sinhvien = new sinhvien();
 $getsinhvien = $sinhvien->SinhvienGetbyId($id_sinhvien);
 ?>
-<div class="title_user">Sinh viên mới</div>
+
 <div class="content_user">
     <form name="updatesinhvien" id="formupdate" method="post" action="./element/mSinhvien/SinhvienAct.php?reqact=updatesinhvien">
         <input type="hidden" name="id_sinhvien" value="<?php echo $id_sinhvien; ?>"/>

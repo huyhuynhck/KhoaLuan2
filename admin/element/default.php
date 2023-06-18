@@ -22,6 +22,8 @@ require './element/mod/LophocCls.php';
 require './element/mod/NganhhocCls.php';
 require './element/mod/TrinhdoCls.php';
 require './element/mod/SinhvienCls.php';
+require './element/mod/KPI.php';
+require './element/mod/NhomKpiCls.php';
 
 ?>
 
@@ -136,41 +138,21 @@ require './element/mod/SinhvienCls.php';
         
 </div> -->
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Welcome To Admin</h1>
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Tên danh mục</th>
-                                            <th>Số lượng</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                    
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
                     <tr>
-                        <td>User</td>
-                        <td>
-                            <?php
-                        $User = new user();
-                        $dem_user = $User->UserCount();
-                        echo $dem_user;
-                            ?>
-                        </td>
+                        <th>Tên danh mục</th>
+                        <th>Số lượng dữ liệu</th>
                     </tr>
+                </thead>
+                <tbody>
                     <tr>
-                        <td>Đơn vị</td>
-                        <td>
-                            <?php
-                        $Donvi = new donvi();
-                        $dem_donvi = $Donvi->DonviCount();
-                        echo $dem_donvi;
-                            ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Cán bộ</td>
+                        <td>Cán Bộ</td>
                         <td>
                             <?php
                         $Canbo = new canbo();
@@ -180,12 +162,32 @@ require './element/mod/SinhvienCls.php';
                         </td>
                     </tr>
                     <tr>
-                        <td>Giảng viên</td>
+                        <td>Công Việc</td>
                         <td>
                             <?php
-                        $Giangvien = new giangvien();
-                        $dem_giangvien = $Giangvien->GiangvienCount();
-                        echo $dem_giangvien;
+                        $kpi = new kpi();
+                        $dem_kpi = $kpi->KPICount();
+                        echo $dem_kpi;
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nhóm Công Việc</td>
+                        <td>
+                            <?php
+                        $nhomkpi = new nhomkpi();
+                        $dem_nhomkpi = $nhomkpi->NhomKpiCount();
+                        echo $dem_nhomkpi;
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Đơn Vị</td>
+                        <td>
+                            <?php
+                        $Donvi = new donvi();
+                        $dem_donvi = $Donvi->DonviCount();
+                        echo $dem_donvi;
                             ?>
                         </td>
                     </tr>
@@ -220,16 +222,6 @@ require './element/mod/SinhvienCls.php';
                         </td>
                     </tr>
                     <tr>
-                        <td>Sinhvien</td>
-                        <td>
-                            <?php
-                        $Sinhvien = new sinhvien();
-                        $dem_sinhvien = $Sinhvien->SinhvienCount();
-                        echo $dem_sinhvien;
-                            ?>
-                        </td>
-                    </tr>
-                    <tr>
                         <td>Trình độ</td>
                         <td>
                             <?php
@@ -239,12 +231,13 @@ require './element/mod/SinhvienCls.php';
                             ?>
                         </td>
                     </tr>
+                    
 
                    
-            </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-             
+

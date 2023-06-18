@@ -24,13 +24,12 @@
   session_start();
 ?>
 <div class="container-fluid mt-3">
-  <h3 style="font-family: cursive;
-            font-weight: bold;
-            font-size: 50px;
-            text-align: center;">View User</h3>
-
   <!-- Control the column width, and how they should appear on different devices -->
-  
+  <div id="top_div">
+                <?php
+                require 'form/top.php';
+                ?> 
+            </div>
   <div id="center_div">
                 <?php
                 require 'form/main.php';

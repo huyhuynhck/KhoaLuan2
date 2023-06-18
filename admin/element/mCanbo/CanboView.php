@@ -6,7 +6,6 @@ require './element/mod/PhanloaiCls.php';
 ?>
 <div>Quản Lý Cán Bộ</div>
 <hr>
-<div>Cán bộ mới</div>
 <div>
 <?php
     $canbo = new canbo();

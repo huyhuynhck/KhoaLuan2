@@ -237,6 +237,15 @@ class kpi extends Database {
         
         return $obj->fetch();
     }
+
+    /* Đếm dữ liệu trong DB*/
+    public function KPICount() {
+        $getAll = $this->connect->prepare("select * from kpi");
+        $getAll->setFetchMode(PDO::FETCH_OBJ);
+        $getAll->execute();
+        $list = $getAll->fetchAll();
+        return count($list);
+    }
 }
 
 ?>
