@@ -5,7 +5,7 @@
             <a class="sidebar-brand d-flex align-items-center justify-content-center" style="height: 6.375rem;" href="./index.php">
                 <div class="">
                     <img src="./Image/avt-taydo.png" style="width: 90px;">
-                    <div class="sidebar-brand-text mx-3"><?=$_SESSION['ADMIN']->username?><sup>hihi</sup></div>
+                    <div class="sidebar-brand-text mx-3"><?=$_SESSION['ADMIN']->username?></div>
                 </div>
             </a>
 
