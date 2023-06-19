@@ -25,11 +25,11 @@ class user extends database {
     /* Phương thức UserCheckLogin: thực hiện kiểm tra đăng nhập */
 
     public function UserCheckLogin($username, $password) {
-        $select = $this->connect->prepare("select * from user where username = ? and password = ? and ability=0");
+        $select = $this->connect->prepare("select * from user where username = ? and password = ?");
         $select->setFetchMode(PDO::FETCH_OBJ);
         $select->execute(array($username, $password));
-        if (count($select->fetchAll()) == 1) {
-            return TRUE;
+        if ($select->rowCount()>0) {
+            return $select->FETCH();
         } else {
             return FALSE;
         }
@@ -51,7 +51,7 @@ class user extends database {
     /* Phương thức UserGetAll: lấy tất cả mẩu tin trong bảng user trả về mảng dữ liệu: */
 
     public function UserGetAll() {
-        $getAll = $this->connect->prepare("select * from user");
+        $getAll = $this->connect->prepare("select * from user where id_phanquyen != 0");
         $getAll->setFetchMode(PDO::FETCH_OBJ);
         $getAll->execute();
         return $getAll->fetchAll();
@@ -59,9 +59,9 @@ class user extends database {
 
     /* Phương thức UserAdd: thêm người dùng */
 
-    public function UserAdd($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai) {
-        $add = $this->connect->prepare("INSERT INTO user(username, password, hoten, gioitinh, ngaysinh, diachi, dienthoai) VALUES(?,?,?,?,?,?,?)");
-        $add->execute(array($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai));
+    public function UserAdd($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai, $id_phanquyen) {
+        $add = $this->connect->prepare("INSERT INTO user(username, password, hoten, gioitinh, ngaysinh, diachi, dienthoai, id_phanquyen) VALUES(?,?,?,?,?,?,?,?)");
+        $add->execute(array($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai, $id_phanquyen));
         return $add->rowCount();
     }
 
@@ -75,9 +75,9 @@ class user extends database {
 
     /* Phương thức UserUpdate: cập nhật dữ liệu người dùng */
 
-    public function UserUpdate($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai, $iduser) {
-        $update = $this->connect->prepare("UPDATE user SET username = ?, password = ?, hoten = ?, gioitinh = ?, ngaysinh = ?, diachi = ?, dienthoai = ? WHERE iduser = ?");
-        $update->execute(array($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai, $iduser));
+    public function UserUpdate($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai, $id_phanquyen, $iduser) {
+        $update = $this->connect->prepare("UPDATE user SET username = ?, password = ?, hoten = ?, gioitinh = ?, ngaysinh = ?, diachi = ?, dienthoai = ?, id_phanquyen=? WHERE iduser = ?");
+        $update->execute(array($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai, $id_phanquyen, $iduser));
         return $update->rowCount();
     }
 
@@ -100,9 +100,9 @@ class user extends database {
 
     /* Phương thức UserSetActive: khóa tài khoản người dùng */
 
-    public function UserSetActive($iduser, $ability) {
-        $update = $this->connect->prepare("update user set ability=? where iduser=?");
-        $update->execute(array($ability, $iduser));
+    public function UserSetActive($iduser, $active) {
+        $update = $this->connect->prepare("update user set active=? where iduser=?");
+        $update->execute(array($active, $iduser));
         return $update->rowCount();
     }
 

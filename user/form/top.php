@@ -12,8 +12,26 @@
     }
     h3 {
     font-weight: bold;
-    font-size: 3rem;
     text-align: center;
     margin-top: 2%;
+}
+
+@media only screen and (max-width: 390px) {
+    .dispay{
+        display: flex;
+        vertical-align:middle ;
+        align-items: center;
+    }
+    img{
+        text-align: left;
+        vertical-align:middle ;
+    }
+   
+    h3 {
+    font-weight: bold;
+    font-size: 1rem !important;
+    text-align: center;
+
+}
 }
 </style>

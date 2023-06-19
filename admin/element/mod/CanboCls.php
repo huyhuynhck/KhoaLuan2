@@ -78,12 +78,20 @@ class canbo extends database {
         return $getTk->fetch();
     }
     /* Đếm dữ liệu trong DB*/
-    public function CanboCount() {
-        $getAll = $this->connect->prepare("select * from canbo");
-        $getAll->setFetchMode(PDO::FETCH_OBJ);
-        $getAll->execute();
-        $list = $getAll->fetchAll();
-        return count($list);
+    public function CanboCount($id_donvi) {
+        if($id_donvi == 0){
+            $getAll = $this->connect->prepare("select * from canbo ");
+            $getAll->setFetchMode(PDO::FETCH_OBJ);
+            $getAll->execute();
+            $list = $getAll->fetchAll();
+            return count($list);
+        }else{
+            $getAll = $this->connect->prepare("select * from canbo where id_donvi = ?");
+            $getAll->setFetchMode(PDO::FETCH_OBJ);
+            $getAll->execute(array($id_donvi));
+            $list = $getAll->fetchAll();
+            return count($list);
+        }
     }
     
     public function CanboGetName() {
@@ -92,6 +100,24 @@ class canbo extends database {
         $getAll->execute();
         return $getAll->fetchAll();
     }
+
+
+    public function CanboGetAll_By_Don_Vi($id_donvi) {
+        if($id_donvi == 0){
+            $getAll = $this->connect->prepare("select * from canbo");
+            $getAll->setFetchMode(PDO::FETCH_OBJ);
+            $getAll->execute();
+            return $getAll->fetchAll();
+        }else{
+            $getAll = $this->connect->prepare("SELECT * FROM canbo, donvi WHERE canbo.id_donvi = donvi.id_donvi AND donvi.id_donvi = ?");
+            $getAll->setFetchMode(PDO::FETCH_OBJ);
+            $getAll->execute(array($id_donvi));
+            return $getAll->fetchAll();
+        }
+     
+    }
+
+
 }
 
 ?>

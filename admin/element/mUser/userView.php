@@ -1,4 +1,10 @@
-<div>Quản Lý Người Dùng</div>
+<?php
+require './element/mod/PhanquyenCls.php';
+require './element/mod/DonviCls.php';
+$phanquyen = new phanquyen();
+$donvi = new donvi();
+?>
+<div>Quản Lý Tài Khoản Cán Bộ Khoa</div>
 <hr>
 <div>
     <form name="newuser" id="formreg" method="post" action="./element/mUser/userAct.php?reqact=addnew">
@@ -16,32 +22,45 @@
                 <input required class="form-control" type="text" name="hoten"/>
             </div>
             <div class='form-group'>
-                <label>Giới tính:</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gioitinh" id="gioitinh1" value="1" checked="true">
-                    <label class="form-check-label" for="gioitinh1">
-                        Nam
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gioitinh" id="gioitinh2" value="0" checked="true">
-                    <label class="form-check-label" for="gioitinh2">
-                       Nữ
-                    </label>
+                    <input class="form-check-input" type="hidden" name="gioitinh" id="gioitinh1" value="1" checked="true">
                 </div>
             </div>
             <div class='form-group'>
-                <label>Ngày sinh:</label>
-                <input required class="form-control" type="date" name="ngaysinh"/>
+                <input required class="form-control" type="hidden" name="ngaysinh" value="NULL"/>
             </div>
             <div class='form-group'>
-                <label>Địa chỉ:</label>
-                <input required class="form-control" type="text" name="diachi"/>
+                <input required class="form-control" type="hidden" name="diachi" value="NULL"/>
             </div>
             <div class='form-group'>
-                <label>Điện thoại:</label>
-                <input required class="form-control" type="tel" name="dienthoai"/>
+                <input required class="form-control" type="hidden" name="dienthoai" value="0"/>
             </div>
+            <div class='form-group'>
+                <label>Phân quyền:</label>
+                <select name="id_phanquyen" required class="form-control">
+                    <?php 
+                        foreach($phanquyen->PhanquyenGetAll() as $item):
+                    ?>
+                    <option value="<?=$item->id_phanquyen?>">
+                            <?=$item->ten_phanquyen?>
+                    </option>
+                    <?php endforeach?>
+                </select>
+            </div>
+
+            <div class='form-group'>
+                <label>Đơn vị:</label>
+                <select name="id_donvi" required class="form-control">
+                    <?php 
+                        foreach($donvi->DonviGetAll() as $item):
+                    ?>
+                    <option value="<?=$item->id_donvi?>">
+                            <?=$item->ten_donvi?>
+                    </option>
+                    <?php endforeach?>
+                </select>
+            </div>
+
             <div class='form-group mt-2'>
                 <input required class='btn btn-success' type="submit" id="btnsubmit" value="Tạo mới"/>
                 <input required class='btn btn-sm btn-secondary' type="reset" value="Làm lại"/><b id="noteForm"></b>
@@ -72,12 +91,8 @@ require './element/mod/userCls.php';
                         <tr>
                             <th>Username</th>
                             <th>Họ tên</th>
-                            <th>Giới tính</th>
-                            <th>Ngày Sinh</th>
-                            <th>Địa chỉ</th>
-                            <th>Điện thoại</th>
-                            <th>Ngày đăng ký</th>
-                            <th>Trạng thái</th>
+                            <th>Mật khẩu</th>
+                            <th>Phân quyền</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -89,51 +104,8 @@ require './element/mod/userCls.php';
                             <tr>
                                 <td><?php echo $v->username; ?></td>
                                 <td><?php echo $v->hoten; ?></td>
-                                <td align="center"><?php
-                                    if ($v->gioitinh == 0) {
-                                        ?>
-                                        <img class="icoming" src="./Image/nu.jpg"/>
-                                        <?php
-                                    } else {
-                                        ?>   
-                                        <img class="icoming" src="./Image/nam.jpg"/>
-                                        <?php
-                                    }
-                                    ?>
-                                </td>
-                                <td><?php echo $v->ngaysinh; ?></td>
-                                <td><?php echo $v->diachi; ?></td>
-                                <td><?php echo $v->dienthoai; ?></td>
-                                <td><?php echo $v->ngaydangky; ?></td>
-                                <td align="center">
-                                    <?php
-                                    if (isset($_SESSION['ADMIN'])) {
-                                        if ($v->ability == 1) {
-                                            ?>
-                                            <a href="./element/mUser/userAct.php?reqact=setlock&iduser=<?php echo $v->iduser; ?>&ability=<?php echo $v->ability; ?>">
-                                                <img class="fas fa-lock" src="">
-                                            </a>
-                                            <?php
-                                        } else {
-                                            ?>
-                                            <a href="./element/mUser/userAct.php?reqact=setlock&iduser=<?php echo $v->iduser; ?>&ability=<?php echo $v->ability; ?>">
-                                                <img class="fas fa-lock-open" src="">
-                                            </a>
-                                            <?php
-                                        }
-                                    } else {
-                                        if ($v->ability == 1) {
-                                            ?>
-                                            <img class="fas fa-lock" src="">
-                                            <?php
-                                        } else {
-                                            ?>
-                                            <img class="fas fa-lock-open" src="">
-                                            <?php
-                                        }
-                                    }
-                                    ?>
-                                </td>
+                                <td><?php echo $v->password; ?></td>
+                                <td><?php echo $phanquyen->PhanquyenGetbyId($v->id_phanquyen)->ten_phanquyen; ?></td>
                                 <td>
                                     <?php
                                     if (isset($_SESSION['ADMIN'])) {

@@ -22,7 +22,7 @@
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2">Huỳnh Trường Huy</span>
+                    <span class="mr-2"><?=$_SESSION['ADMIN']->hoten?></span>
                     <img class="img-profile rounded-circle"
                         src="./Image/login.png">
                 </a>
@@ -200,6 +200,9 @@
                                 break;
                             case 'viewdot':
                                 require './element/mDot/DotView.php';
+                                break;
+                            case 'canbokhoa':
+                                require './CanboKhoa/mKPI/LuongView.php';
                                 break;
                             }
                     } else {

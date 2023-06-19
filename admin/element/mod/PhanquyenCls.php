@@ -39,7 +39,7 @@ class phanquyen extends database {
     /* Phương thức phanquyenGetAll: lấy tất cả mẩu tin trong bảng cán bộ trả về mảng dữ liệu: */
 
     public function PhanquyenGetAll() {
-        $getAll = $this->connect->prepare("select * from phanquyen");
+        $getAll = $this->connect->prepare("select * from phanquyen where id_phanquyen != 0");
         $getAll->setFetchMode(PDO::FETCH_OBJ);
         $getAll->execute();
         return $getAll->fetchAll();

@@ -4,7 +4,6 @@
 <?php require './form/mod/CanboCls.php'?>
 
 <!-- luong-->
-<?php //if(isset($_GET['req']) && $_GET['req'] == 'luong'):?>
 
 <?php
     $id_canbo = $_SESSION['USER']->id_canbo;
@@ -37,26 +36,32 @@
     
 ?>
 
+<style>
+    @media only screen and (max-width: 390px) {
+    
+.title_table {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+td{
+    font-size: 13px;
+    text-align: center;
+}
+    }
+</style>
 <!-- main-container -->
 
 <div class="main-container">
-    <div class="main-container__add w-400px">
-        
-    </div>
-    <div class="main-container__update w-0"></div>
-    <div class="main-container__view w-100-400px">
-       
-       
         <div class="table-responsive">
-            <table class="table" style="width:100%" id="table_quan_ly_kpi__luong">
+        <table class="table">
                 <thead>
-                    <tr class="title_table">
+                    <tr class="title_table table-primary ">
                         <td>#</td>
                         <td>Tên Cán bộ</td>
                         <td>Đợt</td>
-                        <td>Số Công việc</td>
-                        <td>Số ngày vắng</td>
-                        <td>Giờ dạy thực tế</td>
+                        <!-- <td>Số Công việc</td>
+                        <td>Số ngày vắng</td> -->
+                        <td>Số tiết</td>
                         
                         <td></td>
                         
@@ -92,8 +97,8 @@
                                 $sum_luong += $item_2->thanh_tien;
                             }
                         ?>
-                        <td><?=$item->so_ngay_vang == -1 ? "Chưa xác nhận" : $sum_kpi?></td>
-                        <td><?=$item->so_ngay_vang == -1 ? "Chưa xác nhận" : $item->so_ngay_vang?></td>
+                        <!-- <td><?=$item->so_ngay_vang == -1 ? "Chưa xác nhận" : $sum_kpi?></td> -->
+                        <!-- <td><?=$item->so_ngay_vang == -1 ? "Chưa xác nhận" : $item->so_ngay_vang?></td> -->
                         <td><?=$item->so_ngay_vang == -1 ? "Chưa xác nhận" : $fm->format_money($sum_luong)?></td>
 
                         
@@ -107,26 +112,12 @@
 
                 </tbody>
             </table>
-        </div>
-    </div>
+            </div> 
+            </div> 
 
     <script src="../../assets/vendor/jquery/jquery.min.js"></script>
     <script>
-    window.addEventListener('load', function() {
-        $('.main-container__update').hide();
-
-        var btn_ttbs = document.querySelector(".btn_ttbs");
-
-        $('#table_quan_ly_kpi__luong').DataTable({
-            fixedHeader: true,
-            "lengthMenu": [
-                [-1, 10, 25, 50],
-                ["All", 10, 25, 50]
-            ],
-        });
-
-    });
-
+    
     function update_obj(id_nv) {
         var update = document.querySelector(".main-container__update");
         var view = document.querySelector(".main-container__view");
@@ -151,7 +142,6 @@
         });
     };
     </script>
-</div> 
 
 
 <!-- end luong-->

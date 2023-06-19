@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require "../../element/mod/KPI.php";
 require "../../element/mod/CanboCls.php";
 require "../../element/mod/PhanloaiCls.php";
@@ -163,7 +163,7 @@ if(isset($_GET["page"])){
                             $id_index = $_POST['id_index'];
                             
                             $nhanvien = new canbo();
-                            $list_nv = $nhanvien->CanboGetAll();
+                            $list_nv = $nhanvien->CanboGetAll_By_Don_Vi($_SESSION['ADMIN']->id_donvi);
 
                             $kpi = new kpi();
                             $list_kpi = $kpi->kpi__Get_All();
@@ -172,6 +172,7 @@ if(isset($_GET["page"])){
                             $trinhdo = new trinhdo();
                             foreach($list_nv as $item_1){
                                 foreach($list_kpi as $item_2){
+                                    echo $item_1->id_canbo;
                                     $status += $kpi->luong__Add($id_index
                                     , $item_1->id_canbo
                                     , $item_1->ten_canbo

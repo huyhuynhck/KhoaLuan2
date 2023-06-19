@@ -6,6 +6,7 @@
 <?php //if(isset($_GET['req']) && $_GET['req'] == 'luong'):?>
 
 <?php
+    $id_donvi = $_SESSION['ADMIN']->id_donvi;
 
     $current_date = date('Y-m-d');
     if(isset($_GET['current_date'])) {
@@ -24,8 +25,8 @@
     $indexcount__Get_By_Id = $indexcount->indexcount__Get_By_Id($id_index);
     $indexcount__Get_All = $indexcount->indexcount__Get_All();
     $kpi = new kpi();
-    $luong__Get_By_Index_Group_By_Nhan_Vien = $kpi->luong__Get_By_Index_Group_By_Nhan_Vien($id_index);
-    $luong__Get_Nhan_Vien_By_Id_Index_Not_In = $kpi->luong__Get_Nhan_Vien_By_Id_Index_Not_In($id_index);
+    $luong__Get_By_Index_Group_By_Nhan_Vien = $kpi->luong__Get_By_Index_Group_By_Nhan_Vien($id_index, $id_donvi);
+    $luong__Get_Nhan_Vien_By_Id_Index_Not_In = $kpi->luong__Get_Nhan_Vien_By_Id_Index_Not_In($id_index, $id_donvi);
 
     $da_xac_nhan = 0;
     $sum_xac_nhan = 0;
@@ -44,7 +45,7 @@
     <div class="main-container__add w-400px">
         <div class="main-container__add-form">
             <div class="text-title">
-                Thêm KPI
+                Thêm KPI  <?=$id_donvi ?>
                 <div class="text-muted">
                     Vui lòng chọn kỳ chấm công
                 </div>
@@ -103,7 +104,7 @@
             <?php endif?>
             <br>
             <?php if(count($luong__Get_By_Index_Group_By_Nhan_Vien)<1):?>
-            <form action="./element/mKPI/KpiAct.php?page=luong&req=copy_luong" method="post" enctype="multipart/form-data">
+            <!-- <form action="./element/mKPI/KpiAct.php?page=luong&req=copy_luong" method="post" enctype="multipart/form-data">
                 <div class="form-group mt-1 d-flex">
                     <div class="form-group">
                         <input type="hidden" name="id_index" value=<?=$id_index?>>
@@ -123,7 +124,7 @@
                         <button class="btn btn-danger" type="submit">Copy</button>
                     </div>
                 </div>
-            </form>
+            </form> -->
             <?php endif?>
 
 

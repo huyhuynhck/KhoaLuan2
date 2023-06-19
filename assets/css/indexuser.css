@@ -10,7 +10,7 @@ body {
 }
 
 #top_div {
-    background-color: #33CC33;
+    background-color: #f5f5f5;
 }
 
 .footer {
@@ -82,4 +82,108 @@ body {
 
 .button-inactive {
     color: #000;
+}
+
+
+.title_table {
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+
+td {
+    text-align: center;
+}
+
+@media only screen and (max-width: 390px) {
+
+    html {
+        position: relative;
+        min-height: 100%;
+    }
+
+    body {
+        margin-bottom: 80px;
+        font-family: auto;
+    }
+
+    #top_div {
+        background-color: #f5f5f5;
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100vw;
+        height: 80px;
+        background-color: #f5f5f5;
+        border-top: 1px solid transparent;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar {
+        border-top: 1px solid transparent;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .group-container {
+        padding: 0;
+        height: 100%;
+    }
+
+    .selectors,
+    .block {
+        height: 100%;
+        width: 100%;
+    }
+
+    .selectors button {
+        border: 0;
+        border-radius: 0;
+        background-color: #f8f9fa !important;
+        width: 25%;
+        margin-left: 0;
+    }
+
+    .selectors button:active {
+        border: 0;
+    }
+
+    .selectors button:focus {
+        border: 0;
+        outline: 0;
+        box-shadow: 0 0 0 0px;
+    }
+
+    .active,
+    .selector-holder {
+        display: flex;
+        flex-direction: column;
+        font-size: 12px;
+    }
+
+    .inactive {
+        display: none;
+    }
+
+    .selector-holder span {
+        font-size: 12px;
+    }
+
+    /* Colors of the buttons*/
+    .button-active,
+    .selectors button:hover,
+    .selectors button:active,
+    .selectors button:focus {
+        color: #ff0000;
+    }
+
+    .button-inactive {
+        color: #000;
+    }
+
+    .row {
+        margin: 0;
+    }
+
 }

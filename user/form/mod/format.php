@@ -12,12 +12,12 @@ class format{
                 $money = number_format(round($number, 2), ($cents == 0 ? 0 : 2)); // format
             } // integer or decimal
             } // value
-            return $money.' h';
+            return $money.'';
         } 
     }
 
     public function decode_money($number) {
-        $money_raw= trim(str_replace("h","",$number));
+        $money_raw= trim(str_replace("","",$number));
         $money  = trim(str_replace(",","",$money_raw));
         return $money;
     } 

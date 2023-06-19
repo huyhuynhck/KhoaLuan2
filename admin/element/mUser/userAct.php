@@ -14,12 +14,14 @@ if (isset($_GET['reqact'])) {
             $ngaysinh = $_POST['ngaysinh'];
             $diachi = $_POST['diachi'];
             $dienthoai = $_POST['dienthoai'];
+            $id_phanquyen = $_POST['id_phanquyen'];
+            $id_donvi = $_POST['id_donvi'];
             $user = new user();
             $check = $user->UserCheckUsername($username);
             if($check){
                 $rs = 2;
             }else{
-                $rs += $user->UserAdd($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai);
+                $rs += $user->UserAdd($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai, $id_phanquyen, $id_donvi);
             }
             if ($rs == 1) {
                 header('location:../../index.php?req=userview&result=ok');
@@ -63,9 +65,11 @@ if (isset($_GET['reqact'])) {
             $ngaysinh = $_POST['ngaysinh'];
             $diachi = $_POST['diachi'];
             $dienthoai = $_POST['dienthoai'];
+            $id_phanquyen = $_POST['id_phanquyen'];
+            $id_donvi = $_POST['id_donvi'];
 
             $user = new user();
-            $rs = $user->UserUpdate($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai, $iduser);
+            $rs = $user->UserUpdate($username, $password, $hoten, $gioitinh, $ngaysinh, $diachi, $dienthoai, $id_phanquyen, $id_donvi, $iduser);
             if ($rs) {
                 header('location:../../index.php?req=userview&result=ok');
             } else {
@@ -92,12 +96,9 @@ if (isset($_GET['reqact'])) {
 
             $rs = $user->UserCheckLogin($username, $password);
             if ($rs) {
-                if ($username == "admin") {
-                    $_SESSION['ADMIN'] = $username;
-                } else {
-                    $_SESSION['USER'] = $username;
-                }
+                $_SESSION['ADMIN'] = $rs;
                 header('location:../../index.php');
+
             } else {
                 header('location:../../userLogin.php');
                 setcookie("error", "Đăng nhập không thành công!");

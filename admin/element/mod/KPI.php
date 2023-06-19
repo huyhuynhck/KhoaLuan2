@@ -151,11 +151,18 @@ class kpi extends Database {
         return $obj->rowCount();
     }
 
-    public function luong__Get_By_Index_Group_By_Nhan_Vien($id_index) {
-        $obj = $this->connect->prepare("SELECT * FROM luong WHERE id_index=? GROUP BY id_canbo");
+    public function luong__Get_By_Index_Group_By_Nhan_Vien($id_index, $id_donvi) {
+        if($id_donvi == 0 ){
+            $obj = $this->connect->prepare("SELECT * FROM luong WHERE id_index=? GROUP BY id_canbo");
         $obj->setFetchMode(PDO::FETCH_OBJ);
         $obj->execute(array($id_index));
         return $obj->fetchAll();
+        }else{
+            $obj = $this->connect->prepare("SELECT * FROM luong INNER JOIN canbo ON luong.id_canbo = canbo.id_canbo WHERE id_index=? AND canbo.id_donvi=? GROUP BY canbo.id_canbo");
+        $obj->setFetchMode(PDO::FETCH_OBJ);
+        $obj->execute(array($id_index, $id_donvi));
+        return $obj->fetchAll();
+        }
     }
 
     public function luong__Get_By_Id_Nhan_Vien_And_Id_Index($id_canbo, $id_index) {
@@ -172,11 +179,19 @@ class kpi extends Database {
         return $obj->fetchAll();
     }
 
-    public function luong__Get_By_Id_Index_Not_In($id_index) {
-        $obj = $this->connect->prepare("SELECT * FROM kpi WHERE id_kpi NOT IN (SELECT id_kpi FROM luong WHERE id_index=?)");
+    public function luong__Get_By_Id_Index_Not_In($id_index, $id_donvi) {
+        
+        if($id_donvi == 0 ){
+            $obj = $this->connect->prepare("SELECT * FROM kpi WHERE id_kpi NOT IN (SELECT id_kpi FROM luong WHERE id_index=?)");
         $obj->setFetchMode(PDO::FETCH_OBJ);
         $obj->execute(array($id_index));
         return $obj->fetchAll();
+        }else{
+            $obj = $this->connect->prepare("SELECT * FROM kpi WHERE id_kpi NOT IN (SELECT id_kpi FROM luong INNER JOIN canbo ON luong.id_canbo = canbo.id_canbo WHERE id_index=? AND canbo.id_donvi)");
+        $obj->setFetchMode(PDO::FETCH_OBJ);
+        $obj->execute(array($id_index, $id_donvi));
+        return $obj->fetchAll();
+        }
     }
 
     public function luong__Get_Nhan_Vien_By_Id_Index_Not_In($id_index) {

@@ -25,20 +25,21 @@
                 <hr class="mt-0 mb-4">
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
-                    <h6>Giới tính <?php
-                                        if ($canbo->CanboGetbyId($id_canbo)->gioitinh == 0) {
-                                            ?>
-                                            <img class="icoming" style="width: 30px" src="./form/Image/nu.jpg"/>
-                                            <?php
-                                        } else {
-                                            ?>   
-                                            <img class="icoming" style="width: 30px" src="./form/Image/nam.jpg"/>
-                                            <?php
-                                        }
-                                        ?></h6>
+                    <h6>Giới tính</h6> 
+                    <?php
+                        if ($canbo->CanboGetbyId($id_canbo)->gioitinh == 0) {
+                            ?>
+                            <img class="icoming" style="width: 30px" src="./form/Image/nu.jpg"/>
+                            <?php
+                        } else {
+                            ?>   
+                            <img class="icoming" style="width: 30px" src="./form/Image/nam.jpg"/>
+                            <?php
+                        }
+                        ?>
                   </div>
                   <div class="col-6 mb-3">
-                    <h6>Phone</h6>
+                    <h6>Số điện thoại</h6>
                     <p class="text-muted"><?php echo $canbo->CanboGetbyId($id_canbo)->sodienthoai1?></p>
                   </div>
                 </div>

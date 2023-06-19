@@ -13,7 +13,8 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <link href="../assets/vendor/fontawesome-free/css/all.css" rel="stylesheet">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
  
 	<!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href="../assets/css/indexuser.css">
@@ -23,7 +24,7 @@
 <?php
   session_start();
 ?>
-<div class="container-fluid mt-3">
+<div class="group">
   <!-- Control the column width, and how they should appear on different devices -->
   <div id="top_div">
                 <?php
