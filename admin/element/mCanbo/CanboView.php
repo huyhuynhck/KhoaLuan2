@@ -147,6 +147,7 @@ require './element/mod/PhanloaiCls.php';
                                 <th>Số điện thoại</th>
                                 <th>Địa chỉ thường trú</th>
                                 <th>Ngày vào làm</th>
+                                <th>Đơn vị</th>
                                 <th>Xóa</th>
                                 <th>Cập nhật</th>
                             </tr>
@@ -174,6 +175,7 @@ require './element/mod/PhanloaiCls.php';
                                     <td><?php echo $v->sodienthoai1; ?></td>
                                     <td><?php echo $v->diachithuongtru; ?></td>
                                     <td><?php echo $v->ngay_vao_lam; ?></td>
+                                    <td><?php echo $v->ten_donvi; ?></td>
                                     <td>
                                         <?php
                                         if (isset($_SESSION['ADMIN'])) {

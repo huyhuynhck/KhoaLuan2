@@ -45,7 +45,7 @@
     <div class="main-container__add w-400px">
         <div class="main-container__add-form">
             <div class="text-title">
-                Thêm KPI  <?=$id_donvi ?>
+                Thêm Công Việc
                 <div class="text-muted">
                     Vui lòng chọn kỳ chấm công
                 </div>
@@ -97,7 +97,7 @@
                         </select>
                     </div>
                     <div class="form-group m-2 mt-4">
-                        <button class="btn btn-primary" type="submit">Tạo bảng lương</button>
+                        <button class="btn btn-primary" type="submit">Tạo bảng</button>
                     </div>
                 </div>
             </form>
@@ -148,9 +148,8 @@
                     <tr class="title_table">
                         <td>#</td>
                         <td>Tên nhân viên</td>
-                        <td>Số KPI</td>
-                        <td>Số ngày vắng</td>
-                        <td>Lương thực nhận</td>
+                        <td>Số Công Việc</td>
+                        <td>Số tiết thực giảng</td>
                         
                         <td></td>
                         <td></td>
@@ -172,7 +171,7 @@
                             }
                         ?>
                         <td><?=$item->so_ngay_vang == -1 ? "Chưa xác nhận" : $sum_kpi?></td>
-                        <td><?=$item->so_ngay_vang == -1 ? "Chưa xác nhận" : $item->so_ngay_vang?></td>
+                        <!-- <td><?=$item->so_ngay_vang == -1 ? "Chưa xác nhận" : $item->so_ngay_vang?></td> -->
                         <td><?=$item->so_ngay_vang == -1 ? "Chưa xác nhận" : $fm->format_money($sum_luong)?></td>
                         
                         <td class="t-right"

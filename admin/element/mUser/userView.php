@@ -90,9 +90,10 @@ require './element/mod/userCls.php';
                     <thead>
                         <tr>
                             <th>Username</th>
-                            <th>Họ tên</th>
+                            <th>Tên Cán Bộ</th>
                             <th>Mật khẩu</th>
                             <th>Phân quyền</th>
+                            <th>Đơn vị</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -106,6 +107,7 @@ require './element/mod/userCls.php';
                                 <td><?php echo $v->hoten; ?></td>
                                 <td><?php echo $v->password; ?></td>
                                 <td><?php echo $phanquyen->PhanquyenGetbyId($v->id_phanquyen)->ten_phanquyen; ?></td>
+                                <td><?php echo $donvi->DonviGetbyId($v->id_donvi)->ten_donvi; ?></td>
                                 <td>
                                     <?php
                                     if (isset($_SESSION['ADMIN'])) {

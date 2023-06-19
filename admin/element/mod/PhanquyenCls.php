@@ -63,9 +63,9 @@ class phanquyen extends database {
 
     /* Phương thức phanquyenUpdate: cập nhật dữ liệu người dùng */
 
-    public function PhanquyenUpdate($ten_phanquyen, $mota) {
-        $update = $this->connect->prepare("UPDATE phanquyen SET ten_phanquyen=?, mota=?");
-        $update->execute(array($ten_phanquyen, $mota));
+    public function PhanquyenUpdate($ten_phanquyen, $mota, $id_phanquyen) {
+        $update = $this->connect->prepare("UPDATE phanquyen SET ten_phanquyen=?, mota=? where id_phanquyen=?");
+        $update->execute(array($ten_phanquyen, $mota, $id_phanquyen));
         return $update->rowCount();
     }
 

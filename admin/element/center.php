@@ -111,6 +111,12 @@
                             case 'updatephanloai':
                                 require './element/mPhanloai/PhanloaiUpdate.php';
                                 break;
+                            case 'phanquyenview':
+                                require './element/mPhanquyen/PhanquyenView.php';
+                                break;
+                            case 'updatephanquyen':
+                                require './element/mPhanquyen/PhanquyenUpdate.php';
+                                break;
                             case 'nganhhocview':
                                 require './element/mNganhhoc/NganhhocView.php';
                                 break;

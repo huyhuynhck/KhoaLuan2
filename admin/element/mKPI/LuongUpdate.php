@@ -55,30 +55,29 @@
                             disabled>
                     </div>
                     <div class='form-group m-1 w-fct'>
-                        <label for="">Tên KPI</label>
-                        <input type="text" class="form-control" name="ten_kpi[]" readonly placeholder='Nhập tên KPI'
+                        <label for="">Tên Công Việc</label>
+                        <input type="text" class="form-control" name="ten_kpi[]" readonly placeholder='Nhập tên Công Việc'
                             id="ten_kpi" required value="<?=$item->ten_kpi?>" />
                     </div>
                     <div class=' form-group m-1'>
-                        <label for="">Đơn vị cơ bản</label>
+                        <label for="">Số Lượng</label>
                         <input type="number" max='999999999' step='any' class="form-control hp" name="don_vi_cb[]"
                             placeholder='Nhập đơn vị' id="don_vi_cb" required value="<?=$item->don_vi_cb?>" />
                     </div>
                     <div class='form-group m-1'>
-                        <label for="">Hệ số</label>
+                        <label for="">Quy đổi</label>
                         <input type="number" max='999999999' step='any' class="form-control hp" name="he_so_thuc[]"
-                            placeholder='Nhập hệ số' id="he_so_thuc" required value="<?=$item->he_so_thuc?>" />
+                            placeholder='Nhập Quy đổi' id="he_so_thuc" required value="<?=$item->he_so_thuc?>" />
                     </div>
                     <div class='form-group m-1 w-fct'>
-                        <label for="">Thành tiền</label>
+                        <label for="">Số tiết</label>
                         <input type='number' max='999999999' step='any' class='form-control hp' name='thanh_tien[]'
                             readonly placeholder='Thành tiền' id='thanh_tien' required value='<?=$item->thanh_tien?>' />
                     </div>
                     <div class='form-group m-1 w-fct'>
-                        <label for="">Số ngày vắng</label>
-                        <input type="number" class="form-control hp" name="so_ngay_vang" placeholder='Số ngày'
+                        <input type="hidden" class="form-control hp" name="so_ngay_vang" placeholder='Số ngày'
                             id="so_ngay_vang" required step="any" min="0"
-                            value='<?=$item->so_ngay_vang == -1 ? $ccnv__Get_By_Count_Vang_By_Id_Nv : $item->so_ngay_vang?>' />
+                            value='0' />
                     </div>
                     <?php if(count($luong__Get_By_Id_Nhan_Vien_And_Id_Index) == $count):?>
                     <div class='form-group w-fct d-flex'>
@@ -98,23 +97,23 @@
                         <input type="checkbox" id="<?=$item->id_luong?>" name="id_del[]" value="<?=$item->id_luong?>">
                     </div>
                     <div class='form-group m-1 w-fct'>
-                        <label for="">Tên KPI</label>
-                        <input type="text" class="form-control" name="ten_kpi[]" readonly placeholder='Nhập tên KPI'
+                        <label for="">Tên Công Việc</label>
+                        <input type="text" class="form-control" name="ten_kpi[]" readonly placeholder='Nhập tên Công Việc'
                             id="ten_kpi" required value="<?=$item->ten_kpi?>" />
                     </div>
 
                     <div class=' form-group m-1'>
-                        <label for="">Đơn vị cơ bản</label>
+                        <label for="">Số Lượng</label>
                         <input type="number" max='999999999' step='any' class="form-control hp" name="don_vi_cb[]"
                             placeholder='Nhập đơn vị' id="don_vi_cb" required value="<?=$item->don_vi_cb?>" />
                     </div>
                     <div class='form-group m-1'>
-                        <label for="">Hệ số</label>
+                        <label for="">Quy đổi</label>
                         <input type="number" max='999999999' step='any' class="form-control hp" name="he_so_thuc[]"
-                            placeholder='Nhập hệ số' id="he_so_thuc" required value="<?=$item->he_so_thuc?>" />
+                            placeholder='Nhập Quy đổi' id="he_so_thuc" required value="<?=$item->he_so_thuc?>" />
                     </div>
                     <div class='form-group m-1 w-fct'>
-                        <label for="">Thành tiền</label>
+                        <label for="">Số tiết</label>
                         <input type='number' max='999999999' step='any' class='form-control hp' name='thanh_tien[]'
                             readonly placeholder='Thành tiền' id='thanh_tien' required value='<?=$item->thanh_tien?>' />
                     </div>
@@ -124,7 +123,7 @@
                         <input type="checkbox" id="<?=$item->id_luong?>" name="id_del[]" value="<?=$item->id_luong?>">
                     </div>
                     <div class='form-group m-1 w-fct'>
-                        <input type="text" class="form-control" name="ten_kpi" readonly placeholder='Nhập tên KPI'
+                        <input type="text" class="form-control" name="ten_kpi" readonly placeholder='Nhập tên Công Việc'
                             id="ten_kpi" required value="<?=$item->ten_kpi?>" />
                     </div>
                     <div class='form-group m-1'>
@@ -133,7 +132,7 @@
                     </div>
                     <div class='form-group m-1'>
                         <input type="number" max='999999999' step='any' class="form-control hp" name="he_so_thuc[]"
-                            placeholder='Nhập hệ số' id="he_so_thuc" required value="<?=$item->he_so_thuc?>" />
+                            placeholder='Nhập Quy đổi' id="he_so_thuc" required value="<?=$item->he_so_thuc?>" />
                     </div>
                     <div class='form-group m-1 w-fct'>
                         <input type='number' max='999999999' step='any' class='form-control hp' name='thanh_tien[]'
@@ -157,7 +156,7 @@
             <?php endforeach?>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-danger" onclick="reload_page()">Cập nhật và In phiếu</button>
+            <button type="submit" class="btn btn-danger" onclick="reload_page()">Cập nhật</button>
         </div>
     </form>
 </div>
@@ -205,14 +204,14 @@ $(add_button).click(function(e) {
         $(wrapper).append(
             "<div class='form-add-nl d-flex ml-22px'>" +
             "<div class=' form-group m-1 w-fct'>" +
-            "    <input type='text' class='form-control' name='ten_kpi_add[]' placeholder='Nhập tên KPI' id='ten_kpi_add[]' required />" +
+            "    <input type='text' class='form-control' name='ten_kpi_add[]' placeholder='Nhập tên Công Việc' id='ten_kpi_add[]' required />" +
             "</div>" +
             "<div class='form-group m-1'>" +
             "    <input type='number' max='999999999'  step='any' class='form-control hp' name='don_vi_cb_add[]' placeholder='Nhập đơn vị' id='don_vi_cb'" +
             "        required />" +
             "</div>" +
             "<div class=' form-group m-1'>" +
-            "    <input type='number' max='999999999'  step='any' class='form-control hp' name='he_so_thuc_add[]' placeholder='Nhập hệ số' id='he_so_thuc'" +
+            "    <input type='number' max='999999999'  step='any' class='form-control hp' name='he_so_thuc_add[]' placeholder='Nhập Quy đổi' id='he_so_thuc'" +
             "        required />" +
             "</div>" +
             "<div class='form-group m-1 w-fct'>" +
@@ -310,7 +309,7 @@ $(add_button_exist).click(function(e) {
             "        required />" +
             "</div>" +
             "<div class=' form-group m-1'>" +
-            "    <input type='number' max='999999999'  step='any' class='form-control hp' name='he_so_thuc_add[]' placeholder='Nhập hệ số' id='he_so_thuc'" +
+            "    <input type='number' max='999999999'  step='any' class='form-control hp' name='he_so_thuc_add[]' placeholder='Nhập Quy đổi' id='he_so_thuc'" +
             "        required />" +
             "</div>" +
             "<div class='form-group m-1 w-fct'>" +

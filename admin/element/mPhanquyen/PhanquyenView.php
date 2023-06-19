@@ -1,15 +1,18 @@
-<div>Quản Lý Đơn Vị</div>
+<?php
+require './element/mod/PhanquyenCls.php';
+?>
+<div>Quản Lý phân quyền</div>
 <hr>
+
 <div>
-    <form name="newdonvi" id="formreg" method="post" action="./element/mDonvi/DonviAct.php?reqact=addnew">
+<?php
+    
+    ?>
+    <form name="newphanquyen" id="formreg" method="post" action="./element/mPhanquyen/PhanquyenAct.php?reqact=addnew">
     <div class="form">
         <div class="form-group">
-            <label>Mã đơn vị:</label>
-            <input required class="form-control" type="text" name="ma_donvi">
-        </div>
-        <div class="form-group">
-            <label>Tên đơn vị:</label>
-            <input required class="form-control" type="text" name="ten_donvi">
+            <label>Tên phân quyền:</label>
+            <input required class="form-control" type="text" name="ten_phanquyen">
         </div>
         <div class="form-group">
             <label>Mô tả:</label>
@@ -24,49 +27,44 @@
 </div>
 <hr/>
 <?php
-require './element/mod/DonviCls.php';
-?>
-<div class="title_donvi">Danh sách đơn vị</div>
-<div class="content_donvi">
-    <?php
-    $donvi = new donvi();
-    $list_donvi = $donvi->DonviGetAll();
-    $l = count($list_donvi);
+    $phanquyen = new phanquyen();
+    $list_phanquyen = $phanquyen->PhanquyenGetAll();
+    $l = count($list_phanquyen);
     ?>
-    <p>Trong bảng có <b><?php echo $l; ?></b></p>
+   <p>Trong bảng có <b><?php echo $l; ?></b></p>
     <?php
     if ($l > 0) {
         ?>
+        <h1 class="h3 mb-2 text-gray-800">Danh sách phân quyền</h1>           
+        <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Mã đơn vị</th>
-                                <th>Tên đơn vị</th>
-                                <th>Mô tả</th>
+                                <th>Tên phân quyền</th>
                                 <th>Xóa</th>
                                 <th>Cập nhật</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            foreach ($list_donvi as $v) {
+                            foreach ($list_phanquyen as $v) {
                                 ?>
                                 <tr>
-                                    <td><?php echo $v->ma_donvi; ?></td>
-                                    <td><?php echo $v->ten_donvi; ?></td>
-                                    <td><?php echo $v->mota; ?></td>
-                                    <td>
+                                    <td><?php echo $v->ten_phanquyen; ?></td>
+                                    <td  class="t-right">
                                         <?php
                                         if (isset($_SESSION['ADMIN'])) {
                                             ?>
-                                            <img class="iconimg" src="./Image/delete.png" onclick="confirm_sweet('./element/mDonvi/DonviAct.php?reqact=deletedonvi&id_donvi=<?php echo $v->id_donvi; ?>')">
+                                                
+                                                <i class="far fa-trash-alt" onclick="return confirm_sweet('./element/mPhanquyen/PhanquyenAct.php?reqact=deletephanquyen&id_phanquyen=<?php echo $v->id_phanquyen; ?>')"></i>
+                                            
                                             <?php
                                         } else {
                                             ?>
-                                            <img class="iconimg" src="./Image/delete.png">
+                                            <img class="far fa-trash-alt">
                                             <?php
                                         }
                                         ?>
@@ -77,13 +75,14 @@ require './element/mod/DonviCls.php';
             //                                    isset($_SESSION['USER']) and
                                                 $v->username = 'admin') {
                                             ?>
-                                            <a href="index.php?req=updatedonvi&id_donvi=<?php echo $v->id_donvi; ?>">
-                                                <img class="iconimg" src="./Image/update.png">
+                                            <a href="index.php?req=updatephanquyen&id_phanquyen=<?php echo $v->id_phanquyen; ?>">
+                                                <i class="fas fa-sync-alt"></i>
                                             </a>
+                                            
                                             <?php
                                         } else {
                                             ?>
-                                            <img class="iconimg" src="./Image/update.png">
+                                            <i class="fas fa-sync-alt"></i>
                                             <?php
                                         }
                                         ?>

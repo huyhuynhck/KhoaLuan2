@@ -49,6 +49,7 @@
                         <a class="collapse-item" href="index.php?req=nganhhocview">Ngành học</a>
                         <a class="collapse-item" href="index.php?req=giangdayview">Giảng dạy</a>
                         <a class="collapse-item" href="index.php?req=khoahocview">Khoá học</a>
+                        <a class="collapse-item" href="index.php?req=phanquyenview">Phân quyền</a>
 
                         <a class="collapse-item" href="index.php?req=kpiview">Công Việc</a>
                         <a class="collapse-item" href="index.php?req=viewnhomkpi">Nhóm Công Việc</a>
